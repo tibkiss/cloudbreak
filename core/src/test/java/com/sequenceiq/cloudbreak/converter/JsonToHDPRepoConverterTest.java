@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.sequenceiq.cloudbreak.api.model.AmbariStackDetailsJson;
-import com.sequenceiq.cloudbreak.cloud.model.HDPRepo;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPRepo;
 
 public class JsonToHDPRepoConverterTest extends AbstractJsonConverterTest<AmbariStackDetailsJson> {
     private JsonToHDPRepoConverter underTest;

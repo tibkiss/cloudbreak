@@ -1,8 +1,9 @@
-package com.sequenceiq.cloudbreak.cloud.model;
+package com.sequenceiq.cloudbreak.cloud.model.catalog;
 
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sequenceiq.cloudbreak.cloud.model.Versioned;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HDPInfo implements Versioned {

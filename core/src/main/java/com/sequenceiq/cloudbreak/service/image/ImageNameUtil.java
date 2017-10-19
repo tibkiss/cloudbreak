@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import com.sequenceiq.cloudbreak.cloud.model.HDPInfo;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPInfo;
 
 @Component
 public class ImageNameUtil {

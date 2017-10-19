@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sequenceiq.cloudbreak.cloud.model.HDPInfo;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AmbariInfo {
