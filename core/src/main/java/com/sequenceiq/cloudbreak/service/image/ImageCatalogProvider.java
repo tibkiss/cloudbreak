@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.sequenceiq.cloudbreak.client.RestClientUtil;
-import com.sequenceiq.cloudbreak.cloud.model.CloudbreakImageCatalog;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakImageCatalog;
 
 @Service
 public class ImageCatalogProvider {

@@ -1,7 +1,8 @@
-package com.sequenceiq.cloudbreak.cloud.model;
+package com.sequenceiq.cloudbreak.cloud.model.catalog;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sequenceiq.cloudbreak.cloud.model.Versioned;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AmbariCatalog implements Versioned {

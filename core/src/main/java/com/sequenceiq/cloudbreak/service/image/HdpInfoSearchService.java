@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import com.sequenceiq.cloudbreak.cloud.model.AmbariCatalog;
-import com.sequenceiq.cloudbreak.cloud.model.CloudbreakImageCatalog;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.AmbariCatalog;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakImageCatalog;
 import com.sequenceiq.cloudbreak.cloud.model.HDPInfo;
 import com.sequenceiq.cloudbreak.core.CloudbreakImageNotFoundException;
 
