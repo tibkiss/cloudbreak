@@ -1,12 +1,13 @@
-package com.sequenceiq.cloudbreak.cloud.model.catalog;
+package com.sequenceiq.cloudbreak.api.model.imagecatalog;
 
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AmbariImage {
+public class AmbariImageJson implements JsonEntity {
 
     @JsonProperty("date")
     private String date;
@@ -30,7 +31,7 @@ public class AmbariImage {
     private Map<String, String> repo;
 
     @JsonProperty("hdp")
-    private HDPDetails hdp;
+    private HDPDetailsJson hdp;
 
     @JsonProperty("images")
     private Map<String, Map<String, String>> imageSetsByProvider;
@@ -91,11 +92,11 @@ public class AmbariImage {
         this.repo = repo;
     }
 
-    public HDPDetails getHdp() {
+    public HDPDetailsJson getHdp() {
         return hdp;
     }
 
-    public void setHdp(HDPDetails hdp) {
+    public void setHdp(HDPDetailsJson hdp) {
         this.hdp = hdp;
     }
 

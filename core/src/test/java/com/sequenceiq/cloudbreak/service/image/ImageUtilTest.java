@@ -30,7 +30,6 @@ public class ImageUtilTest {
     public void beforeTest() throws IOException {
         String catalogJson = FileReaderUtils.readFileFromClasspath("com/sequenceiq/cloudbreak/service/image/cb-image-catalog-v2.json");
         CloudbreakImageCatalogV2 cloudbreakImageCatalog = JsonUtil.readValue(catalogJson, CloudbreakImageCatalogV2.class);
-
         when(imageCatalogProvider.getImageCatalogV2()).thenReturn(cloudbreakImageCatalog);
     }
 
@@ -39,7 +38,7 @@ public class ImageUtilTest {
         Images images = underTest.getImages("aws", "1.16.4");
         Assert.assertFalse("Result contains no Ambari Image for the version.", images.getAmbariImages().isEmpty());
         boolean exactImageIdMatch = images.getAmbariImages().stream()
-                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.4.2.2-1-8be996f0-a388-4efb-adc4-9253b1092365-2.5.0.1-265"));
+                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.5.1.9-4-a3613863-37c0-4046-8cd8-cfe52f10f7fa-2.6.1.4-2"));
         Assert.assertTrue("Result doesn't contain the required Ambari image with id.", exactImageIdMatch);
     }
 
@@ -48,7 +47,7 @@ public class ImageUtilTest {
         Images images = underTest.getImages("aws", "1.16.4-dev.132");
         Assert.assertFalse("Result contains no Ambari Image for the version.", images.getAmbariImages().isEmpty());
         boolean exactImageIdMatch = images.getAmbariImages().stream()
-                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.4.2.2-1-8be996f0-a388-4efb-adc4-9253b1092365-2.5.0.1-265"));
+                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.5.1.9-4-a3613863-37c0-4046-8cd8-cfe52f10f7fa-2.6.1.4-2"));
         Assert.assertTrue("Result doesn't contain the required Ambari image with id.", exactImageIdMatch);
     }
 
@@ -57,7 +56,7 @@ public class ImageUtilTest {
         Images images = underTest.getImages("aws", "1.16.4-rc.13");
         Assert.assertFalse("Result contains no Ambari Image for the version.", images.getAmbariImages().isEmpty());
         boolean exactImageIdMatch = images.getAmbariImages().stream()
-                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.4.2.2-1-8be996f0-a388-4efb-adc4-9253b1092365-2.5.0.1-265"));
+                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.5.1.9-4-a3613863-37c0-4046-8cd8-cfe52f10f7fa-2.6.1.4-2"));
         Assert.assertTrue("Result doesn't contain the required Ambari image with id.", exactImageIdMatch);
     }
 
@@ -66,7 +65,7 @@ public class ImageUtilTest {
         Images images = underTest.getImages("aws", "2.1.0-dev.4000");
         Assert.assertFalse("Result contains no Ambari Image for the version.", images.getAmbariImages().isEmpty());
         boolean exactImageIdMatch = images.getAmbariImages().stream()
-                .allMatch(ambariImage -> ambariImage.getUuid().equals("2.5.0.2-65-00230837-9172-460d-98b0-a3449befb5b3-2.6.0.1-152"));
+                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.5.0.2-65-4efa2a89-0c08-4a54-b9cd-c94bf7a11eb3-2.6.0.1-152"));
         Assert.assertTrue("Result doesn't contain the required Ambari image with id.", exactImageIdMatch);
     }
 
@@ -75,7 +74,7 @@ public class ImageUtilTest {
         Images images = underTest.getImages("aws", "2.0.0-rc.4");
         Assert.assertFalse("Result contains no Ambari Image for the version.", images.getAmbariImages().isEmpty());
         boolean exactImageIdMatch = images.getAmbariImages().stream()
-                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.5.0.2-65-00230837-9172-460d-98b0-a3449befb5b3-2.6.0.1-152"));
+                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.5.0.2-65-4efa2a89-0c08-4a54-b9cd-c94bf7a11eb3-2.6.0.1-152"));
         Assert.assertTrue("Result doesn't contain the required Ambari image with id.", exactImageIdMatch);
     }
 
@@ -84,7 +83,7 @@ public class ImageUtilTest {
         Images images = underTest.getImages("AWS", "1.16.4");
         Assert.assertFalse("Result contains no Ambari Image for the version and platform.", images.getAmbariImages().isEmpty());
         boolean exactImageIdMatch = images.getAmbariImages().stream()
-                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.4.2.2-1-8be996f0-a388-4efb-adc4-9253b1092365-2.5.0.1-265"));
+                .anyMatch(ambariImage -> ambariImage.getUuid().equals("2.5.1.9-4-a3613863-37c0-4046-8cd8-cfe52f10f7fa-2.6.1.4-2"));
         Assert.assertTrue("Result doesn't contain the required Ambari image with id for the platform.", exactImageIdMatch);
     }
 

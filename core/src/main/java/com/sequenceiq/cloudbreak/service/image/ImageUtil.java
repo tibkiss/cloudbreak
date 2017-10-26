@@ -59,7 +59,7 @@ public class ImageUtil {
             vMImageUUIDs.forEach(imgUUID -> ambariImages.addAll(
                     imageCatalog.getImages().getAmbariImages().stream()
                             .filter(ambariImage -> ambariImage.getUuid().equals(imgUUID))
-                            .filter(ambariImage -> ambariImage.getHdp().getImageSetsByProvider().keySet().stream().anyMatch(p -> p.equalsIgnoreCase(platform)))
+                            .filter(ambariImage -> ambariImage.getImageSetsByProvider().keySet().stream().anyMatch(p -> p.equalsIgnoreCase(platform)))
                             .collect(Collectors.toSet())));
         }
         images.setAmbariImages(ambariImages);
@@ -69,16 +69,16 @@ public class ImageUtil {
     private Set<String> prefixMatchForCBVersion(String cbVersion, List<CloudbreakVersion> cloudbreakVersions) {
         Set<String> vMImageUUIDs = new HashSet<>();
         String unReleasedVersion = extractCbVersion(UNRELEASED_VERSION_PATTERN, cbVersion);
-        boolean isReleasedVersion = unReleasedVersion.equals(cbVersion);
+        boolean versionIsReleased = unReleasedVersion.equals(cbVersion);
 
-        if (!isReleasedVersion) {
+        if (!versionIsReleased) {
             Set<CloudbreakVersion> unReleasedCbVersions = cloudbreakVersions.stream()
                     .filter(cloudbreakVersion -> cloudbreakVersion.getVersions().stream().anyMatch(aVersion -> aVersion.startsWith(unReleasedVersion)))
                     .collect(Collectors.toSet());
             unReleasedCbVersions.stream().forEach(cloudbreakVersion -> vMImageUUIDs.addAll(cloudbreakVersion.getImageIds()));
         }
 
-        if (isReleasedVersion || vMImageUUIDs.isEmpty()) {
+        if (versionIsReleased || vMImageUUIDs.isEmpty()) {
             String releasedVersion = extractCbVersion(RELEASED_VERSION_PATTERN, cbVersion);
             Set<CloudbreakVersion> releasedCbVersions = cloudbreakVersions.stream()
                     .filter(cloudbreakVersion -> cloudbreakVersion.getVersions().contains(releasedVersion)).collect(Collectors.toSet());

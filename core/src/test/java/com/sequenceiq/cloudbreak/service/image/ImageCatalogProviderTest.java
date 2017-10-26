@@ -26,8 +26,12 @@ public class ImageCatalogProviderTest {
 
     @Before
     public void before() {
-        String path = TestUtil.getFilePath(getClass(), CB_IMAGE_CATALOG_V2_JSON).getParent().toString();
-        underTest.setEtcConfigDir(path);
+        try {
+            String path = TestUtil.getFilePath(getClass(), CB_IMAGE_CATALOG_V2_JSON).getParent().toString();
+            underTest.setEtcConfigDir(path);
+        } catch (Exception e) {
+            underTest.setEtcConfigDir("");
+        }
     }
 
     @Test
@@ -48,7 +52,7 @@ public class ImageCatalogProviderTest {
 
     @Test
     public void testReadImageCatalogFromHTTP() {
-        underTest.setDefaultCatalogUrl("http://s3-eu-west-1.amazonaws.com/cloudbreak-info/output2.json");
+        underTest.setDefaultCatalogUrl("http://s3-eu-west-1.amazonaws.com/cloudbreak-info/output4.json");
         CloudbreakImageCatalogV2 catalog = underTest.getImageCatalogV2();
         Assert.assertNotNull("Check that the parsed ImageCatalog not null.", catalog);
         Optional<CloudbreakVersion> ver = catalog.getVersions().getCloudbreakVersions().stream().filter(v -> v.getVersions().contains(CB_VERSION)).findFirst();
