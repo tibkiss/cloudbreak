@@ -2,6 +2,8 @@ package com.sequenceiq.cloudbreak.service.image;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
@@ -14,6 +16,8 @@ import org.springframework.stereotype.Service;
 import com.sequenceiq.cloudbreak.client.RestClientUtil;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakImageCatalog;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakImageCatalogV2;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakVersion;
+import com.sequenceiq.cloudbreak.core.CloudbreakImageInvalidException;
 import com.sequenceiq.cloudbreak.util.FileReaderUtils;
 import com.sequenceiq.cloudbreak.util.JsonUtil;
 
@@ -77,6 +81,18 @@ public class ImageCatalogProvider {
             LOGGER.warn(String.format("Failed to read image catalog from file: '%s'", defaultCatalogUrl), e);
         }
         return catalog;
+    }
+
+    public void validateImageCatalogUuids(CloudbreakImageCatalogV2 imageCatalog) throws CloudbreakImageInvalidException {
+        List<String> uuidList = imageCatalog.getImages().getAmbariImages().stream().map(images -> images.getUuid()).collect(Collectors.toList());
+        for (CloudbreakVersion version :imageCatalog.getVersions().getCloudbreakVersions()) {
+            for (String imageId : version.getImageIds()) {
+                if (!uuidList.contains(imageId)) {
+                    throw new CloudbreakImageInvalidException(String.format("Image with id: %s is not present in ambari-images block", imageId));
+                }
+
+            }
+        }
     }
 
     public String getDefaultCatalogUrl() {
