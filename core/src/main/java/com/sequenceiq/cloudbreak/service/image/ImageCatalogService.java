@@ -21,9 +21,9 @@ import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakVersion;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.Images;
 
 @Component
-public class ImageUtil {
+public class ImageCatalogService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ImageUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ImageCatalogService.class);
 
     private static final String RELEASED_VERSION_PATTERN = "^\\d+\\.\\d+\\.\\d+";
 

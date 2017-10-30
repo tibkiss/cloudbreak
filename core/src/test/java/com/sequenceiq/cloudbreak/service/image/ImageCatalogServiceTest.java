@@ -18,13 +18,13 @@ import com.sequenceiq.cloudbreak.util.FileReaderUtils;
 import com.sequenceiq.cloudbreak.util.JsonUtil;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ImageUtilTest {
+public class ImageCatalogServiceTest {
 
     @Mock
     private ImageCatalogProvider imageCatalogProvider;
 
     @InjectMocks
-    private ImageUtil underTest;
+    private ImageCatalogService underTest;
 
     @Before
     public void beforeTest() throws IOException {
