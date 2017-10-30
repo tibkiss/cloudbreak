@@ -65,7 +65,7 @@ public class SecurityConfig {
 
         private static final String ACCOUNT_PREFERENCES = API_ROOT_CONTEXT + "/v1/accountpreferences/**";
 
-        private static final String IMAGE_CATALOG_PATTERN = API_ROOT_CONTEXT + "/imagecatalogs/**";
+        private static final String IMAGE_CATALOG_PATTERN = API_ROOT_CONTEXT + "/v1/imagecatalogs/**";
 
         @Value("${cb.client.secret}")
         private String clientSecret;
