@@ -143,7 +143,7 @@ public class JsonToStackConverter extends AbstractConversionServiceAwareConverte
     }
 
     private void validateCustomImage(StackRequest source) {
-        if ((source.getCustomImage() != null && !source.getCustomImage().isEmpty()) && !enableCustomImage) {
+        if ((source.getImageId() != null && !source.getImageId().isEmpty()) && !enableCustomImage) {
             throw new BadRequestException("Custom image feature was not enabled. Please enable it with -Dcb.enable.custom.image=true.");
         }
     }
