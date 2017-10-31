@@ -6,14 +6,18 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.sequenceiq.cloudbreak.api.model.imagecatalog.AmbariImageJson;
-import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDPDetailsJson;
-import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDPRepoDetailsJson;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDFImageJson;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDPImageJson;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.ImageJson;
 import com.sequenceiq.cloudbreak.api.model.imagecatalog.ImagesResponse;
-import com.sequenceiq.cloudbreak.cloud.model.catalog.AmbariImage;
-import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPDetails;
-import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPRepoDetails;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.StackDetailsJson;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.StackRepoDetailsJson;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.HDFImage;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPImage;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.Image;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.Images;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.StackDetails;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.StackRepoDetails;
 
 @Component
 public class ImagesToImagesResponseJsonConverter extends AbstractConversionServiceAwareConverter<Images, ImagesResponse> {
@@ -21,38 +25,54 @@ public class ImagesToImagesResponseJsonConverter extends AbstractConversionServi
     @Override
     public ImagesResponse convert(Images source) {
         ImagesResponse res = new ImagesResponse();
-        List<AmbariImageJson> ambariImageJsons = new ArrayList<>();
-        for (AmbariImage ambariImage: source.getAmbariImages()) {
-            AmbariImageJson ambariImageJson = convertAmbariImageToJson(ambariImage);
-            ambariImageJsons.add(ambariImageJson);
+        List<ImageJson> baseImages = new ArrayList<>();
+        for (Image baseImg: source.getBaseImages()) {
+            ImageJson imgJson = new ImageJson();
+            copyImageFieldsToJson(baseImg, imgJson);
+            baseImages.add(imgJson);
         }
-        res.setAmbariImages(ambariImageJsons);
+        res.setBaseImages(baseImages);
+
+        List<HDPImageJson> hdpImages = new ArrayList<>();
+        for (HDPImage hdpImg: source.getHdpImages()) {
+            HDPImageJson hdpImgJson = new HDPImageJson();
+            copyImageFieldsToJson(hdpImg, hdpImgJson);
+            hdpImgJson.setHdp(convertStackDetailsToJson(hdpImg.getHdp()));
+            hdpImages.add(hdpImgJson);
+        }
+        res.setHdpImages(hdpImages);
+
+        List<HDFImageJson> hdfImages = new ArrayList<>();
+        for (HDFImage hdfImg: source.getHdfImages()) {
+            HDFImageJson hdfImgJson = new HDFImageJson();
+            copyImageFieldsToJson(hdfImg, hdfImgJson);
+            hdfImgJson.setHdf(convertStackDetailsToJson(hdfImg.getHdf()));
+            hdfImages.add(hdfImgJson);
+        }
+        res.setHdfImages(hdfImages);
+
         return res;
     }
 
-    private AmbariImageJson convertAmbariImageToJson(AmbariImage ambariImage) {
-        AmbariImageJson json = new AmbariImageJson();
-        json.setDate(ambariImage.getDate());
-        json.setDescription(ambariImage.getDescription());
-        json.setOs(ambariImage.getOs());
-        json.setPrewarm(ambariImage.isPrewarm());
-        json.setUuid(ambariImage.getUuid());
-        json.setVersion(ambariImage.getVersion());
-        json.setRepo(new HashMap<>(ambariImage.getRepo()));
-        json.setHdp(convertHDPDetailsToJson(ambariImage.getHdp()));
-        json.setImageSetsByProvider(new HashMap<>(ambariImage.getImageSetsByProvider()));
+    private void copyImageFieldsToJson(Image source, ImageJson json) {
+        json.setDate(source.getDate());
+        json.setDescription(source.getDescription());
+        json.setOs(source.getOs());
+        json.setUuid(source.getUuid());
+        json.setVersion(source.getVersion());
+        json.setRepo(new HashMap<>(source.getRepo()));
+        json.setImageSetsByProvider(new HashMap<>(source.getImageSetsByProvider()));
+    }
+
+    private StackDetailsJson convertStackDetailsToJson(StackDetails stackDetails) {
+        StackDetailsJson json = new StackDetailsJson();
+        json.setVersion(stackDetails.getVersion());
+        json.setRepo(convertStackRepoDetailsToJson(stackDetails.getRepo()));
         return json;
     }
 
-    private HDPDetailsJson convertHDPDetailsToJson(HDPDetails hdpDetails) {
-        HDPDetailsJson json = new HDPDetailsJson();
-        json.setVersion(hdpDetails.getVersion());
-        json.setRepo(convertHDPRepoDetailsToJson(hdpDetails.getRepo()));
-        return json;
-    }
-
-    private HDPRepoDetailsJson convertHDPRepoDetailsToJson(HDPRepoDetails repo) {
-        HDPRepoDetailsJson json = new HDPRepoDetailsJson();
+    private StackRepoDetailsJson convertStackRepoDetailsToJson(StackRepoDetails repo) {
+        StackRepoDetailsJson json = new StackRepoDetailsJson();
         json.setStack(new HashMap<>(repo.getStack()));
         json.setUtil(new HashMap<>(repo.getUtil()));
         return json;

@@ -1,0 +1,22 @@
+package com.sequenceiq.cloudbreak.api.model.imagecatalog;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+
+@ApiModel("HDPImagesResponse")
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class HDFImageJson extends ImageJson {
+
+    @JsonProperty("hdf")
+    private StackDetailsJson hdf;
+
+    public StackDetailsJson getHdf() {
+        return hdf;
+    }
+
+    public void setHdf(StackDetailsJson hdf) {
+        this.hdf = hdf;
+    }
+}

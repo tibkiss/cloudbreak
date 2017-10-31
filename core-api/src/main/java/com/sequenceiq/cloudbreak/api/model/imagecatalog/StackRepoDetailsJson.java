@@ -1,16 +1,13 @@
-package com.sequenceiq.cloudbreak.cloud.model.catalog;
+package com.sequenceiq.cloudbreak.api.model.imagecatalog;
 
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HDPRepoDetails {
-
-    public static final String REPO_ID_TAG = "repoid";
-
-    public static final String MPACK_TAG = "mpack";
+public class StackRepoDetailsJson implements JsonEntity {
 
     @JsonProperty("stack")
     private Map<String, String> stack;
@@ -34,8 +31,4 @@ public class HDPRepoDetails {
         this.util = util;
     }
 
-    @Override
-    public String toString() {
-        return "HDPRepo{stack='" + stack.get(REPO_ID_TAG) + "'; utils='" + util.get(REPO_ID_TAG) + "'}";
-    }
 }

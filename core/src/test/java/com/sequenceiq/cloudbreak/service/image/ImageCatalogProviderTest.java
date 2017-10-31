@@ -37,7 +37,9 @@ public class ImageCatalogProviderTest {
     @Test
     public void testReadImageCatalogFromFile() {
         underTest.setDefaultCatalogUrl(CB_IMAGE_CATALOG_V2_JSON);
+
         CloudbreakImageCatalogV2 catalog = underTest.getImageCatalogV2();
+
         Assert.assertNotNull("Check that the parsed ImageCatalog not null.", catalog);
         Optional<CloudbreakVersion> ver = catalog.getVersions().getCloudbreakVersions().stream().filter(v -> v.getVersions().contains(CB_VERSION)).findFirst();
         Assert.assertTrue("Check that the parsed ImageCatalog contains the desired version of Cloudbreak.", ver.isPresent());
@@ -46,14 +48,28 @@ public class ImageCatalogProviderTest {
         Optional<String> imageIdOptional = imageIds.stream().findFirst();
         Assert.assertTrue("Check that the parsed ImageCatalog contains Ambari image reference for the Cloudbreak version.", imageIdOptional.isPresent());
         String imageId = imageIdOptional.get();
-        boolean ambariImageFoundForVersion = catalog.getImages().getAmbariImages().stream().anyMatch(i -> i.getUuid().equals(imageId));
-        Assert.assertTrue("Check that the parsed ImageCatalog contains Ambari image for the Cloudbreak version.", ambariImageFoundForVersion);
+        boolean baseImageFound = false;
+        boolean hdpImageFound = false;
+        boolean hdfImageFoiund = false;
+        if (catalog.getImages().getBaseImages() != null) {
+            baseImageFound = catalog.getImages().getBaseImages().stream().anyMatch(i -> i.getUuid().equals(imageId));
+        }
+        if (catalog.getImages().getHdpImages() != null) {
+            hdpImageFound = catalog.getImages().getHdpImages().stream().anyMatch(i -> i.getUuid().equals(imageId));
+        }
+        if (catalog.getImages().getHdfImages() != null) {
+            hdfImageFoiund = catalog.getImages().getHdfImages().stream().anyMatch(i -> i.getUuid().equals(imageId));
+        }
+        boolean anyImageFoundForVersion = baseImageFound || hdpImageFound || hdfImageFoiund;
+        Assert.assertTrue("Check that the parsed ImageCatalog contains Ambari image for the Cloudbreak version.", anyImageFoundForVersion);
     }
 
     @Test
     public void testReadImageCatalogFromHTTP() {
-        underTest.setDefaultCatalogUrl("http://s3-eu-west-1.amazonaws.com/cloudbreak-info/output4.json");
+        underTest.setDefaultCatalogUrl("https://s3-eu-west-1.amazonaws.com/cloudbreak-info/output5.json");
+
         CloudbreakImageCatalogV2 catalog = underTest.getImageCatalogV2();
+
         Assert.assertNotNull("Check that the parsed ImageCatalog not null.", catalog);
         Optional<CloudbreakVersion> ver = catalog.getVersions().getCloudbreakVersions().stream().filter(v -> v.getVersions().contains(CB_VERSION)).findFirst();
         Assert.assertTrue("Check that the parsed ImageCatalog contains the desired version of Cloudbreak.", ver.isPresent());
@@ -62,7 +78,19 @@ public class ImageCatalogProviderTest {
         Optional<String> imageIdOptional = ver.get().getImageIds().stream().findFirst();
         Assert.assertTrue("Check that the parsed ImageCatalog contains Ambari image reference for the Cloudbreak version.", imageIdOptional.isPresent());
         String imageId = imageIdOptional.get();
-        boolean ambariImageFoundForVersion = catalog.getImages().getAmbariImages().stream().anyMatch(i -> i.getUuid().equals(imageId));
-        Assert.assertTrue("Check that the parsed ImageCatalog contains Ambari image for the Cloudbreak version.", ambariImageFoundForVersion);
+        boolean baseImageFound = false;
+        boolean hdpImageFound = false;
+        boolean hdfImageFoiund = false;
+        if (catalog.getImages().getBaseImages() != null) {
+            baseImageFound = catalog.getImages().getBaseImages().stream().anyMatch(i -> i.getUuid().equals(imageId));
+        }
+        if (catalog.getImages().getHdpImages() != null) {
+            hdpImageFound = catalog.getImages().getHdpImages().stream().anyMatch(i -> i.getUuid().equals(imageId));
+        }
+        if (catalog.getImages().getHdfImages() != null) {
+            hdfImageFoiund = catalog.getImages().getHdfImages().stream().anyMatch(i -> i.getUuid().equals(imageId));
+        }
+        boolean anyImageFoundForVersion = baseImageFound || hdpImageFound || hdfImageFoiund;
+        Assert.assertTrue("Check that the parsed ImageCatalog contains Ambari image for the Cloudbreak version.", anyImageFoundForVersion);
     }
 }

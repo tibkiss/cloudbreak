@@ -84,7 +84,7 @@ public class ImageCatalogProvider {
     }
 
     public void validateImageCatalogUuids(CloudbreakImageCatalogV2 imageCatalog) throws CloudbreakImageInvalidException {
-        List<String> uuidList = imageCatalog.getImages().getAmbariImages().stream().map(images -> images.getUuid()).collect(Collectors.toList());
+        List<String> uuidList = imageCatalog.getImages().getBaseImages().stream().map(images -> images.getUuid()).collect(Collectors.toList());
         for (CloudbreakVersion version :imageCatalog.getVersions().getCloudbreakVersions()) {
             for (String imageId : version.getImageIds()) {
                 if (!uuidList.contains(imageId)) {

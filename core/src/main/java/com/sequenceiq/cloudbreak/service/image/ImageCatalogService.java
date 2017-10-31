@@ -1,6 +1,5 @@
 package com.sequenceiq.cloudbreak.service.image;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,9 +14,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.sequenceiq.cloudbreak.cloud.model.catalog.AmbariImage;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakImageCatalogV2;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakVersion;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.HDFImage;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPImage;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.Image;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.Images;
 
 @Component
@@ -42,7 +43,6 @@ public class ImageCatalogService {
     public Images getImages(String platform, String cbVersion) {
         LOGGER.info("Determine images for platform: '{}' and Cloudbreak version: '{}'.", platform, cbVersion);
         Images images = new Images();
-        List<AmbariImage> ambariImages = new ArrayList<>();
         CloudbreakImageCatalogV2 imageCatalog = imageCatalogProvider.getImageCatalogV2();
         if (imageCatalog != null) {
             Set<String> vMImageUUIDs = new HashSet<>();
@@ -56,13 +56,24 @@ public class ImageCatalogService {
                 vMImageUUIDs.addAll(prefixMatchForCBVersion(cbVersion, cloudbreakVersions));
             }
 
-            vMImageUUIDs.forEach(imgUUID -> ambariImages.addAll(
-                    imageCatalog.getImages().getAmbariImages().stream()
-                            .filter(ambariImage -> ambariImage.getUuid().equals(imgUUID))
-                            .filter(ambariImage -> ambariImage.getImageSetsByProvider().keySet().stream().anyMatch(p -> p.equalsIgnoreCase(platform)))
-                            .collect(Collectors.toSet())));
+            List<Image> baseImages = imageCatalog.getImages().getBaseImages().stream()
+                    .filter(img -> vMImageUUIDs.contains(img.getUuid()))
+                    .filter(img -> img.getImageSetsByProvider().keySet().stream().anyMatch(p -> p.equalsIgnoreCase(platform)))
+                    .collect(Collectors.toList());
+            images.setBaseImages(baseImages);
+
+            List<HDPImage> hdpImages = imageCatalog.getImages().getHdpImages().stream()
+                    .filter(img -> vMImageUUIDs.contains(img.getUuid()))
+                    .filter(img -> img.getImageSetsByProvider().keySet().stream().anyMatch(p -> p.equalsIgnoreCase(platform)))
+                    .collect(Collectors.toList());
+            images.setHdpImages(hdpImages);
+
+            List<HDFImage> hdfImages = imageCatalog.getImages().getHdfImages().stream()
+                    .filter(img -> vMImageUUIDs.contains(img.getUuid()))
+                    .filter(img -> img.getImageSetsByProvider().keySet().stream().anyMatch(p -> p.equalsIgnoreCase(platform)))
+                    .collect(Collectors.toList());
+            images.setHdfImages(hdfImages);
         }
-        images.setAmbariImages(ambariImages);
         return images;
     }
 

@@ -12,14 +12,36 @@ import io.swagger.annotations.ApiModel;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ImagesResponse implements JsonEntity {
 
-    @JsonProperty("ambari-images")
-    private List<AmbariImageJson> ambariImages;
+    @JsonProperty("base-images")
+    private List<ImageJson> baseImages;
 
-    public List<AmbariImageJson> getAmbariImages() {
-        return ambariImages;
+    @JsonProperty("hdp-images")
+    private List<HDPImageJson> hdpImages;
+
+    @JsonProperty("hdf-images")
+    private List<HDFImageJson> hdfImages;
+
+    public List<ImageJson> getBaseImages() {
+        return baseImages;
     }
 
-    public void setAmbariImages(List<AmbariImageJson> ambariImages) {
-        this.ambariImages = ambariImages;
+    public void setBaseImages(List<ImageJson> baseImages) {
+        this.baseImages = baseImages;
+    }
+
+    public List<HDPImageJson> getHdpImages() {
+        return hdpImages;
+    }
+
+    public void setHdpImages(List<HDPImageJson> hdpImages) {
+        this.hdpImages = hdpImages;
+    }
+
+    public List<HDFImageJson> getHdfImages() {
+        return hdfImages;
+    }
+
+    public void setHdfImages(List<HDFImageJson> hdfImages) {
+        this.hdfImages = hdfImages;
     }
 }

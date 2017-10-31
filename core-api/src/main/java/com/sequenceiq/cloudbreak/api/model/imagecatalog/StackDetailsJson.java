@@ -1,16 +1,17 @@
-package com.sequenceiq.cloudbreak.cloud.model.catalog;
+package com.sequenceiq.cloudbreak.api.model.imagecatalog;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HDPDetails {
+public class StackDetailsJson implements JsonEntity {
 
     @JsonProperty("version")
     private String version;
 
     @JsonProperty("repo")
-    private HDPRepoDetails repo;
+    private StackRepoDetailsJson repo;
 
     public String getVersion() {
         return version;
@@ -20,11 +21,11 @@ public class HDPDetails {
         this.version = version;
     }
 
-    public HDPRepoDetails getRepo() {
+    public StackRepoDetailsJson getRepo() {
         return repo;
     }
 
-    public void setRepo(HDPRepoDetails repo) {
+    public void setRepo(StackRepoDetailsJson repo) {
         this.repo = repo;
     }
 }

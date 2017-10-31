@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AmbariImageJson implements JsonEntity {
+public class ImageJson implements JsonEntity {
 
     @JsonProperty("date")
     private String date;
@@ -24,14 +24,8 @@ public class AmbariImageJson implements JsonEntity {
     @JsonProperty("version")
     private String version;
 
-    @JsonProperty("prewarm")
-    private boolean prewarm;
-
     @JsonProperty("repo")
     private Map<String, String> repo;
-
-    @JsonProperty("hdp")
-    private HDPDetailsJson hdp;
 
     @JsonProperty("images")
     private Map<String, Map<String, String>> imageSetsByProvider;
@@ -76,28 +70,12 @@ public class AmbariImageJson implements JsonEntity {
         this.version = version;
     }
 
-    public boolean isPrewarm() {
-        return prewarm;
-    }
-
-    public void setPrewarm(boolean prewarm) {
-        this.prewarm = prewarm;
-    }
-
     public Map<String, String> getRepo() {
         return repo;
     }
 
     public void setRepo(Map<String, String> repo) {
         this.repo = repo;
-    }
-
-    public HDPDetailsJson getHdp() {
-        return hdp;
-    }
-
-    public void setHdp(HDPDetailsJson hdp) {
-        this.hdp = hdp;
     }
 
     public Map<String, Map<String, String>> getImageSetsByProvider() {

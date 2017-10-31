@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AmbariImage {
+public class Image {
 
     @JsonProperty("date")
     private String date;
@@ -23,14 +23,8 @@ public class AmbariImage {
     @JsonProperty("version")
     private String version;
 
-    @JsonProperty("prewarm")
-    private boolean prewarm;
-
     @JsonProperty("repo")
     private Map<String, String> repo;
-
-    @JsonProperty("hdp")
-    private HDPDetails hdp;
 
     @JsonProperty("images")
     private Map<String, Map<String, String>> imageSetsByProvider;
@@ -75,28 +69,12 @@ public class AmbariImage {
         this.version = version;
     }
 
-    public boolean isPrewarm() {
-        return prewarm;
-    }
-
-    public void setPrewarm(boolean prewarm) {
-        this.prewarm = prewarm;
-    }
-
     public Map<String, String> getRepo() {
         return repo;
     }
 
     public void setRepo(Map<String, String> repo) {
         this.repo = repo;
-    }
-
-    public HDPDetails getHdp() {
-        return hdp;
-    }
-
-    public void setHdp(HDPDetails hdp) {
-        this.hdp = hdp;
     }
 
     public Map<String, Map<String, String>> getImageSetsByProvider() {

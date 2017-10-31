@@ -1,8 +1,8 @@
 {
   "images": {
-    "ambari-images": [
+    "base-images": [
       {
-        "uuid": "tyuio-ghjkl-vbnmk",
+        "uuid": "f6e778fc-7f17-4535-9021-515351df3691",
         "date": "2016-09-20",
         "prewarm": false,
         "os": "centos7",
@@ -43,55 +43,28 @@
             "default": "hdc-hdp--1710161226"
           }
         },
-        "description": "Cloudbreak official image"
-      },
+        "description": "Cloudbreak official base image"
+      }
+    ],
+    "hdp-images": [
       {
-        "uuid": "poiuy-lkjhg-mnbvc",
-        "date": "2016-09-20",
-        "prewarm": true,
-        "version": "2.5.0.0-1157",
-        "os": "centos7",
-        "repo": {
-          "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.0.0-1157/",
-          "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos7/2.x/BUILDS/2.4.0.0-1157/"
-        },
-        "hdf": {
-          "version": "2.1.16.0-800",
+        "date": "2016-08-14",
+        "description": "Cloudbreak official image",
+        "hdp": {
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDF/centos6/2.x/BUILDS/2.4.10.0-80",
-              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDF/centos7/2.x/BUILDS/2.4.10.0-80",
-              "repoid": "HDF-2.4"
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.0-1200",
+              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos7/2.x/BUILDS/2.5.0.0-1200",
+              "repoid": "HDP-2.5"
             },
             "util": {
-              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6",
-              "redhat7": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos7",
-              "repoid": "HDF-UTILS-1.1.0.20"
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos7",
+              "repoid": "HDP-UTILS-1.1.0.21"
             }
           },
-          "images": {
-            "aws": {
-              "ap-northeast-1": "ami-0fc3016e",
-              "ap-northeast-2": "ami-4d6aa023",
-              "ap-southeast-1": "ami-ced60fad",
-              "ap-southeast-2": "ami-9f9eaafc",
-              "eu-central-1": "ami-cd4cbaa2",
-              "eu-west-1": "ami-0b067378",
-              "sa-east-1": "ami-70a5331c",
-              "us-east-1": "ami-70a73c67",
-              "us-west-1": "ami-3fe8ab5f",
-              "us-west-2": "ami-6bf9330b"
-            }
-          }
+          "version": "2.5.0.0-1200"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.0.0-1157-3495b462-91aa-4c94-83da-2ecdb936936a-2.5.0.0-1200",
-        "date": "2016-08-14",
-        "prewarm": true,
-        "version": "2.4.0.0-1157",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-7e8a481f",
@@ -106,33 +79,32 @@
             "us-west-2": "ami-f9d91399"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.0.0-1157/",
           "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos7/2.x/BUILDS/2.4.0.0-1157/"
         },
-        "hdp": {
-          "version": "2.5.0.0-1200",
-          "repo": {
-            "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.0-1200",
-              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos7/2.x/BUILDS/2.5.0.0-1200",
-              "repoid": "HDP-2.5"
-            },
-            "util": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
-              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos7",
-              "repoid": "HDP-UTILS-1.1.0.21"
-            }
-          }
-        },
-        "description": "Cloudbreak official image"
+        "uuid": "2.4.0.0-1157-6eff4b14-482f-4e31-8e15-cb3a153d1030-2.5.0.0-1200",
+        "version": "2.4.0.0-1157"
       },
       {
-        "uuid": "2.4.0.0-1157-45293153-c8bd-4e4f-bdb9-0d01d429532b-2.4.10.0-80",
         "date": "2016-08-15",
-        "prewarm": true,
-        "version": "2.4.0.0-1157",
-        "os": "centos7",
+        "description": "Cloudbreak official image",
+        "hdp": {
+          "repo": {
+            "stack": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
+              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos7/2.x/BUILDS/2.4.10.0-80",
+              "repoid": "HDP-2.4"
+            },
+            "util": {
+              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6",
+              "redhat7": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos7",
+              "repoid": "HDP-UTILS-1.1.0.20"
+            }
+          },
+          "version": "2.4.10.0-80"
+        },
         "images": {
           "aws": {
             "ap-northeast-1": "ami-0fc3016e",
@@ -147,33 +119,32 @@
             "us-west-2": "ami-6bf9330b"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.0.0-1157/",
           "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos7/2.x/BUILDS/2.4.0.0-1157/"
         },
-        "hdp": {
-          "version": "2.4.10.0-80",
-          "repo": {
-            "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
-              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos7/2.x/BUILDS/2.4.10.0-80",
-              "repoid": "HDP-2.4"
-            },
-            "util": {
-              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6",
-              "redhat7": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos7",
-              "repoid": "HDP-UTILS-1.1.0.20"
-            }
-          }
-        },
-        "description": "Cloudbreak official image"
+        "uuid": "2.4.0.0-1157-290254ec-4574-4f42-bbfa-d036913b80ff-2.4.10.0-80",
+        "version": "2.4.0.0-1157"
       },
       {
-        "uuid": "2.4.0.1-1-06c985a7-0ffd-4412-b4fa-97ce9b9ee642-2.5.0.0",
         "date": "2016-09-14",
-        "prewarm": true,
-        "version": "2.4.0.1-1",
-        "os": "centos7",
+        "description": "Cloudbreak official image",
+        "hdp": {
+          "repo": {
+            "stack": {
+              "redhat6": "http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.0/",
+              "redhat7": "http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.5.0.0",
+              "repoid": "HDP-2.5"
+            },
+            "util": {
+              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat7": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos7",
+              "repoid": "HDP-UTILS-1.1.0.21"
+            }
+          },
+          "version": "2.5.0.0"
+        },
         "images": {
           "aws": {
             "ap-northeast-1": "ami-f03aec91",
@@ -205,33 +176,32 @@
             "West US": "https://sequenceiqwestus2.blob.core.windows.net/images/hdc-hdp-25-1611041452.vhd"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.0.1",
           "redhat7": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.4.0.1"
         },
-        "hdp": {
-          "version": "2.5.0.0",
-          "repo": {
-            "stack": {
-              "redhat6": "http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.0/",
-              "redhat7": "http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.5.0.0",
-              "repoid": "HDP-2.5"
-            },
-            "util": {
-              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
-              "redhat7": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos7",
-              "repoid": "HDP-UTILS-1.1.0.21"
-            }
-          }
-        },
-        "description": "Cloudbreak official image"
+        "uuid": "2.4.0.1-1-d6b1be0f-d1ec-4236-8a01-3ae5ce2d71a3-2.5.0.0",
+        "version": "2.4.0.1-1"
       },
       {
-        "uuid": "2.4.0.1-1-af30d944-ef44-4baf-877f-e0d32c440396-2.4.10.0-80",
         "date": "2016-09-01",
-        "prewarm": true,
-        "version": "2.4.0.1-1",
-        "os": "centos7",
+        "description": "Cloudbreak official image",
+        "hdp": {
+          "repo": {
+            "stack": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
+              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos7/2.x/BUILDS/2.4.10.0-80",
+              "repoid": "HDP-2.4"
+            },
+            "util": {
+              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6",
+              "redhat7": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos7",
+              "repoid": "HDP-UTILS-1.1.0.20"
+            }
+          },
+          "version": "2.4.10.0-80"
+        },
         "images": {
           "aws": {
             "ap-northeast-1": "ami-03de1562",
@@ -246,33 +216,30 @@
             "us-west-2": "ami-ff99489f"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.0.1",
           "redhat7": "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.4.0.1"
         },
-        "hdp": {
-          "version": "2.4.10.0-80",
-          "repo": {
-            "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
-              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos7/2.x/BUILDS/2.4.10.0-80",
-              "repoid": "HDP-2.4"
-            },
-            "util": {
-              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6",
-              "redhat7": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos7",
-              "repoid": "HDP-UTILS-1.1.0.20"
-            }
-          }
-        },
-        "description": "Cloudbreak official image"
+        "uuid": "2.4.0.1-1-e8eccde2-45cb-45b3-9819-4691c789e460-2.4.10.0-80",
+        "version": "2.4.0.1-1"
       },
       {
-        "uuid": "2.4.1.0-19-d92fd73f-a6bd-4d80-9fc2-dc67f795001f-2.5.0.1-8",
         "date": "2016-09-16",
-        "prewarm": true,
-        "version": "2.4.1.0-19",
-        "os": "centos7",
+        "description": "Cloudbreak official image",
+        "hdp": {
+          "repo": {
+            "stack": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-8",
+              "repoid": "HDP-2.5"
+            },
+            "util": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "repoid": "HDP-UTILS-1.1.0.21"
+            }
+          },
+          "version": "2.5.0.1-8"
+        },
         "images": {
           "aws": {
             "ap-northeast-1": "ami-6e35e40f",
@@ -287,30 +254,29 @@
             "us-west-2": "ami-7f67b51f"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.1.0-19/"
         },
-        "hdp": {
-          "version": "2.5.0.1-8",
-          "repo": {
-            "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-8",
-              "repoid": "HDP-2.5"
-            },
-            "util": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
-              "repoid": "HDP-UTILS-1.1.0.21"
-            }
-          }
-        },
-        "description": "Cloudbreak official image"
+        "uuid": "2.4.1.0-19-664e8908-c502-4b43-b0b7-fe23e6100122-2.5.0.1-8",
+        "version": "2.4.1.0-19"
       },
       {
-        "uuid": "2.4.1.0-19-84f346ad-2c1c-4502-9139-951e65634961-2.4.10.0-80",
         "date": "2016-09-20",
-        "prewarm": true,
-        "version": "2.4.1.0-19",
-        "os": "centos7",
+        "description": "Cloudbreak official image",
+        "hdp": {
+          "repo": {
+            "stack": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
+              "repoid": "HDP-2.4"
+            },
+            "util": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6",
+              "repoid": "HDP-UTILS-1.1.0.20"
+            }
+          },
+          "version": "2.4.10.0-80"
+        },
         "images": {
           "aws": {
             "ap-northeast-1": "ami-5faa793e",
@@ -325,30 +291,29 @@
             "us-west-2": "ami-3176ab51"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.1.0-19/"
         },
-        "hdp": {
-          "version": "2.4.10.0-80",
-          "repo": {
-            "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
-              "repoid": "HDP-2.4"
-            },
-            "util": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6",
-              "repoid": "HDP-UTILS-1.1.0.20"
-            }
-          }
-        },
-        "description": "Cloudbreak official image"
+        "uuid": "2.4.1.0-19-e24d0638-1690-41fc-a907-1a61cfa9bd0a-2.4.10.0-80",
+        "version": "2.4.1.0-19"
       },
       {
-        "uuid": "2.4.1.0-19-6344e9a3-7b48-45bb-9cd1-e332988bb431-2.5.0.1-31",
         "date": "2016-09-26",
-        "prewarm": true,
-        "version": "2.4.1.0-19",
-        "os": "centos7",
+        "description": "Cloudbreak official image",
+        "hdp": {
+          "repo": {
+            "stack": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-31",
+              "repoid": "HDP-2.5"
+            },
+            "util": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "repoid": "HDP-UTILS-1.1.0.21"
+            }
+          },
+          "version": "2.5.0.1-31"
+        },
         "images": {
           "aws": {
             "ap-northeast-1": "ami-8d26fbec",
@@ -363,30 +328,29 @@
             "us-west-2": "ami-e1e93681"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.1.0-19/"
         },
+        "uuid": "2.4.1.0-19-4c88ad27-9fbe-4288-8299-fa61e9d8b8af-2.5.0.1-31",
+        "version": "2.4.1.0-19"
+      },
+      {
+        "date": "2016-10-12",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.5.0.1-31",
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-31",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-60",
               "repoid": "HDP-2.5"
             },
             "util": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.5.0.1-60"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.1.0-22-3224dd1b-6642-4508-87ed-6afd38c12e6a-2.5.0.1-60",
-        "date": "2016-10-12",
-        "prewarm": true,
-        "version": "2.4.1.0-22",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-4230ea23",
@@ -401,30 +365,29 @@
             "us-west-2": "ami-057ba065"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.1.0-22/"
         },
+        "uuid": "2.4.1.0-22-787b6974-3bf8-41c1-9492-d61bd139af86-2.5.0.1-60",
+        "version": "2.4.1.0-22"
+      },
+      {
+        "date": "2016-12-13",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.5.0.1-60",
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-60",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
               "repoid": "HDP-2.5"
             },
             "util": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.5.0.1-139"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.2.2-1-51202c04-d18f-47d4-9025-cb8afd512c13-2.5.0.1-139",
-        "date": "2016-12-13",
-        "prewarm": true,
-        "version": "2.4.2.2-1",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-c64629a1",
@@ -439,11 +402,17 @@
             "us-west-2": "ami-a840eac8"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/"
         },
+        "uuid": "2.4.2.2-1-734767a1-dd05-4a73-a8cf-75964997963b-2.5.0.1-139",
+        "version": "2.4.2.2-1"
+      },
+      {
+        "date": "2017-01-05",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.5.0.1-139",
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
@@ -453,16 +422,9 @@
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.5.0.1-139"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.2.2-1-64c06467-02b1-4886-af91-5dbbed205075-2.5.0.1-139",
-        "date": "2017-01-05",
-        "prewarm": true,
-        "version": "2.4.2.2-1",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-9a7505fd",
@@ -477,30 +439,31 @@
             "us-west-2": "ami-bf01b1df"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/"
         },
+        "uuid": "2.4.2.2-1-cde06be0-b50a-4e6d-98ce-45366988e63d-2.5.0.1-139",
+        "version": "2.4.2.2-1"
+      },
+      {
+        "date": "2017-01-19",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.5.0.1-139",
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
+              "redhat7": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
               "repoid": "HDP-2.5"
             },
             "util": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat7": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.5.0.1-139"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.2.2-1-918d9c92-e420-4366-b0a6-c162ed65d27a-2.5.0.1-139",
-        "date": "2017-01-19",
-        "prewarm": true,
-        "version": "2.4.2.2-1",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-25304942",
@@ -532,33 +495,30 @@
             "West US": "https://sequenceiqwestus2.blob.core.windows.net/images/hdc-hdp-25-1612141945.vhd"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/",
           "redhat7": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/"
         },
+        "uuid": "2.4.2.2-1-8c667c54-5365-43de-a026-16c2e7235c55-2.5.0.1-139",
+        "version": "2.4.2.2-1"
+      },
+      {
+        "date": "2017-02-10",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.5.0.1-139",
           "repo": {
             "stack": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
-              "redhat7": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-210",
               "repoid": "HDP-2.5"
             },
             "util": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
-              "redhat7": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.5.0.1-210"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.2.2-1-0f4205d5-320b-4d89-b79f-15440007d62a-2.5.0.1-210",
-        "date": "2017-02-10",
-        "prewarm": true,
-        "version": "2.4.2.2-1",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-118dcf76",
@@ -573,30 +533,29 @@
             "us-west-2": "ami-7fb6321f"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/"
         },
+        "uuid": "2.4.2.2-1-faf7cd22-9f61-4186-bf88-89b541400ddc-2.5.0.1-210",
+        "version": "2.4.2.2-1"
+      },
+      {
+        "date": "2017-03-23",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.5.0.1-210",
           "repo": {
             "stack": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-210",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265",
               "repoid": "HDP-2.5"
             },
             "util": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.5.0.1-265"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.2.2-1-b143e21c-3227-4121-89b9-ac832e04866e-2.5.0.1-265",
-        "date": "2017-03-23",
-        "prewarm": true,
-        "version": "2.4.2.2-1",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-99adf4fe",
@@ -611,11 +570,17 @@
             "us-west-2": "ami-cad359aa"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/"
         },
+        "uuid": "2.4.2.2-1-88a52f8b-7cf8-4e1c-a81a-8917eae25db8-2.5.0.1-265",
+        "version": "2.4.2.2-1"
+      },
+      {
+        "date": "2017-03-23",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.5.0.1-265",
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265",
@@ -625,16 +590,9 @@
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.5.0.1-265"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.2.2-1-7420b83e-8d48-4cb6-8a29-be7ec6f8f6bb-2.5.0.1-265",
-        "date": "2017-03-23",
-        "prewarm": true,
-        "version": "2.4.2.2-1",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-50a8f137",
@@ -649,11 +607,17 @@
             "us-west-2": "ami-05ef6565"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/"
         },
+        "uuid": "2.4.2.2-1-9a308050-4d5b-45a9-bfee-ce1cc444953d-2.5.0.1-265",
+        "version": "2.4.2.2-1"
+      },
+      {
+        "date": "2017-08-07",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.5.0.1-265",
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265",
@@ -663,16 +627,9 @@
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.5.0.1-265"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.4.2.2-1-ca0a0c89-0b7f-401a-9689-d36270612809-2.5.0.1-265",
-        "date": "2017-08-07",
-        "prewarm": true,
-        "version": "2.4.2.2-1",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-e621ca80",
@@ -687,30 +644,29 @@
             "us-west-2": "ami-b7d435cf"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.4.2.2-1/"
         },
-        "hdp": {
-          "version": "2.5.0.1-265",
-          "repo": {
-            "stack": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265",
-              "repoid": "HDP-2.5"
-            },
-            "util": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
-              "repoid": "HDP-UTILS-1.1.0.21"
-            }
-          }
-        },
-        "description": "Cloudbreak official image"
+        "uuid": "2.4.2.2-1-9e3ccdca-fa64-42eb-ab29-b1450767bbd8-2.5.0.1-265",
+        "version": "2.4.2.2-1"
       },
       {
-        "uuid": "2.5.0.0-608-1c12249d-3fd7-45c9-a898-b9ddb3ff5d05-2.6.0.0-331",
         "date": "2017-01-13",
-        "prewarm": true,
-        "version": "2.5.0.0-608",
-        "os": "centos7",
+        "description": "Cloudbreak official image",
+        "hdp": {
+          "repo": {
+            "stack": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.0-331",
+              "repoid": "HDP-2.6"
+            },
+            "util": {
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "repoid": "HDP-UTILS-1.1.0.21"
+            }
+          },
+          "version": "2.6.0.0-331"
+        },
         "images": {
           "aws": {
             "ap-northeast-1": "ami-9b324efc",
@@ -725,30 +681,29 @@
             "us-west-2": "ami-89b60be9"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.5.0.0-608"
         },
+        "uuid": "2.5.0.0-608-31139004-fc4c-4172-ab39-9ca5c473fe28-2.6.0.0-331",
+        "version": "2.5.0.0-608"
+      },
+      {
+        "date": "2017-01-19",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.0.0-331",
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.0-331",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-331",
               "repoid": "HDP-2.6"
             },
             "util": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.0.0-331"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.0.0-608-31bd0840-2d53-43ff-8c8b-62eff14b4d99-2.6.0.0-331",
-        "date": "2017-01-19",
-        "prewarm": true,
-        "version": "2.5.0.0-608",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-17c2bc70",
@@ -763,30 +718,29 @@
             "us-west-2": "ami-fcea559c"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.0.0-608"
         },
+        "uuid": "2.5.0.0-608-3f571a38-2fa3-4c6c-9452-057b27adacdd-2.6.0.0-331",
+        "version": "2.5.0.0-608"
+      },
+      {
+        "date": "2017-02-10",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.0.0-331",
           "repo": {
             "stack": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-331",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-422",
               "repoid": "HDP-2.6"
             },
             "util": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.0.0-422"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.0.0-771-6c686a6f-9e0e-47d4-b909-37de1f200b6a-2.6.0.0-422",
-        "date": "2017-02-10",
-        "prewarm": true,
-        "version": "2.5.0.0-771",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-485a182f",
@@ -801,30 +755,29 @@
             "us-west-2": "ami-50a62230"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.0.0-771"
         },
+        "uuid": "2.5.0.0-771-43f25ef0-0ecd-4802-9563-183be5814978-2.6.0.0-422",
+        "version": "2.5.0.0-771"
+      },
+      {
+        "date": "2017-03-16",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.0.0-422",
           "repo": {
             "stack": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-422",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-598",
               "repoid": "HDP-2.6"
             },
             "util": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.0.0-598"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.0.0-1094-9f235f3f-bfbd-453c-8415-9d001d7f4b63-2.6.0.0-598",
-        "date": "2017-03-16",
-        "prewarm": true,
-        "version": "2.5.0.0-1094",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-23015d44",
@@ -839,11 +792,17 @@
             "us-west-2": "ami-2f0e874f"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.0.0-1094"
         },
+        "uuid": "2.5.0.0-1094-4b02d4f4-bc8b-41fb-8653-04c0828f75f6-2.6.0.0-598",
+        "version": "2.5.0.0-1094"
+      },
+      {
+        "date": "2017-03-23",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.0.0-598",
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-598",
@@ -853,16 +812,9 @@
               "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.0.0-598"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.0.0-1096-d27177f6-13f4-4475-8c4d-739ae3e6d8cf-2.6.0.0-598",
-        "date": "2017-03-23",
-        "prewarm": true,
-        "version": "2.5.0.0-1096",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-84ebb2e3",
@@ -877,30 +829,29 @@
             "us-west-2": "ami-b5f67cd5"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.0.0-1096"
         },
+        "uuid": "2.5.0.0-1096-328d571d-d95d-4a69-a7f3-6bfbba0e3950-2.6.0.0-598",
+        "version": "2.5.0.0-1096"
+      },
+      {
+        "date": "2017-06-12",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.0.0-598",
           "repo": {
             "stack": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-598",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.1-152",
               "repoid": "HDP-2.6"
             },
             "util": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.0.1-152"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.0.2-65-4efa2a89-0c08-4a54-b9cd-c94bf7a11eb3-2.6.0.1-152",
-        "date": "2017-06-12",
-        "prewarm": true,
-        "version": "2.5.0.2-65",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-b1717fd6",
@@ -915,30 +866,29 @@
             "us-west-2": "ami-0b696172"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.5.0.2-65"
         },
+        "uuid": "2.5.0.2-65-fe0ba14f-cb44-4573-ac8c-23cbc72bbd57-2.6.0.1-152",
+        "version": "2.5.0.2-65"
+      },
+      {
+        "date": "2017-06-08",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.0.1-152",
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.1-152",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.1-145",
               "repoid": "HDP-2.6"
             },
             "util": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.0.1-145"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.0.2-65-9670a9d4-5214-4fdb-aa22-24b4ae5a2b23-2.6.0.1-145",
-        "date": "2017-06-08",
-        "prewarm": true,
-        "version": "2.5.0.2-65",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-a69895c1",
@@ -953,30 +903,29 @@
             "us-west-2": "ami-28fef051"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.5.0.2-65"
         },
+        "uuid": "2.5.0.2-65-5288855d-d7b9-4b90-b326-ab4b168cf581-2.6.0.1-145",
+        "version": "2.5.0.2-65"
+      },
+      {
+        "date": "2017-05-11",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.0.1-145",
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.1-145",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.1.0-55",
               "repoid": "HDP-2.6"
             },
             "util": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.1.0-55"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.0.3-7-6d09a672-fae3-4146-9eb2-664038b2fb15-2.6.1.0-55",
-        "date": "2017-05-11",
-        "prewarm": true,
-        "version": "2.5.0.3-7",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-b6724fd1",
@@ -991,30 +940,29 @@
             "us-west-2": "ami-1bee8b7b"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.0.3"
         },
+        "uuid": "2.5.0.3-7-27d7cb22-3d7e-485a-9266-10fb09d632f4-2.6.1.0-55",
+        "version": "2.5.0.3-7"
+      },
+      {
+        "date": "2017-04-24",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.1.0-55",
           "repo": {
             "stack": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.1.0-55",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.1.0-22",
               "repoid": "HDP-2.6"
             },
             "util": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.1.0-22"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.0.3-7-dd7c1345-0327-4d9c-92f1-0b60d23ebfd6-2.6.1.0-22",
-        "date": "2017-04-24",
-        "prewarm": true,
-        "version": "2.5.0.3-7",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-31290256",
@@ -1029,30 +977,29 @@
             "us-west-2": "ami-bdaf30dd"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.5.0.3-7"
         },
+        "uuid": "2.5.0.3-7-0af7ea50-d096-4c2a-8d5b-32f323cef86b-2.6.1.0-22",
+        "version": "2.5.0.3-7"
+      },
+      {
+        "date": "2017-07-05",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.1.0-22",
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.1.0-22",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.1.4-1",
               "repoid": "HDP-2.6"
             },
             "util": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.1.4-1"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.1.2-1-5025794c-99f1-4363-8a39-42e4c229b7ef-2.6.1.4-1",
-        "date": "2017-07-05",
-        "prewarm": true,
-        "version": "2.5.1.2-1",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-76ced211",
@@ -1067,30 +1014,29 @@
             "us-west-2": "ami-59a8b820"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.1.2-1"
         },
+        "uuid": "2.5.1.2-1-ee64754a-091e-4251-8c27-2326d583928b-2.6.1.4-1",
+        "version": "2.5.1.2-1"
+      },
+      {
+        "date": "2017-07-19",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.1.4-1",
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.1.4-1",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.1.4-2",
               "repoid": "HDP-2.6"
             },
             "util": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.1.4-2"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.1.9-4-a3613863-37c0-4046-8cd8-cfe52f10f7fa-2.6.1.4-2",
-        "date": "2017-07-19",
-        "prewarm": true,
-        "version": "2.5.1.9-4",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-5c15f23a",
@@ -1105,30 +1051,29 @@
             "us-west-2": "ami-4c584135"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://private-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.1.9-4"
         },
+        "uuid": "2.5.1.9-4-ccbb32dc-6c9f-43f1-8a09-64b598fda733-2.6.1.4-2",
+        "version": "2.5.1.9-4"
+      },
+      {
+        "date": "2017-09-14",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.1.4-2",
           "repo": {
             "stack": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.1.4-2",
+              "redhat6": "http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.2.0",
               "repoid": "HDP-2.6"
             },
             "util": {
-              "redhat6": "http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.2.0"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.2.0-4f27fd1c-7ab8-481e-b9d5-2a3a8890b3d7-2.6.2.0",
-        "date": "2017-09-14",
-        "prewarm": true,
-        "version": "2.5.2.0",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-9bf735fd",
@@ -1143,30 +1088,29 @@
             "us-west-2": "ami-e047b798"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.5.2.0"
         },
+        "uuid": "2.5.2.0-a7b0e31f-0469-405c-834d-24a3f045dacb-2.6.2.0",
+        "version": "2.5.2.0"
+      },
+      {
+        "date": "2017-10-24",
+        "description": "Cloudbreak official image",
         "hdp": {
-          "version": "2.6.2.0",
           "repo": {
             "stack": {
-              "redhat6": "http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.2.0",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.2.4-5",
               "repoid": "HDP-2.6"
             },
             "util": {
-              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
               "repoid": "HDP-UTILS-1.1.0.21"
             }
-          }
+          },
+          "version": "2.6.2.4-5"
         },
-        "description": "Cloudbreak official image"
-      },
-      {
-        "uuid": "2.5.2.5-3-cfc92bed-e194-4ec7-945b-f1a90902b1af-2.6.2.4-5",
-        "date": "2017-10-24",
-        "prewarm": true,
-        "version": "2.5.2.5-3",
-        "os": "centos7",
         "images": {
           "aws": {
             "ap-northeast-1": "ami-efd67089",
@@ -1181,23 +1125,54 @@
             "us-west-2": "ami-815995f9"
           }
         },
+        "os": "centos7",
         "repo": {
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.5.2.5-3"
         },
-        "hdp": {
-          "version": "2.6.2.4-5",
+        "uuid": "2.5.2.5-3-9dc4e453-c2ff-43b4-a2af-9800e5cf4c57-2.6.2.4-5",
+        "version": "2.5.2.5-3"
+      }
+    ],
+    "hdf-images": [
+      {
+        "uuid": "9958938a-1261-48e2-aff9-dbcb2cebf6cd",
+        "date": "2016-09-20",
+        "version": "2.5.0.0-1157",
+        "os": "centos7",
+        "repo": {
+          "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.0.0-1157/",
+          "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos7/2.x/BUILDS/2.4.0.0-1157/"
+        },
+        "hdf": {
+          "version": "2.1.16.0-800",
           "repo": {
             "stack": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.2.4-5",
-              "repoid": "HDP-2.6"
+              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDF/centos6/2.x/BUILDS/2.4.10.0-80",
+              "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/HDF/centos7/2.x/BUILDS/2.4.10.0-80",
+              "repoid": "HDF-2.4"
             },
             "util": {
-              "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP-UTILS-1.1.0.21/repos/centos6",
-              "repoid": "HDP-UTILS-1.1.0.21"
+              "redhat6": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6",
+              "redhat7": "http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos7",
+              "repoid": "HDF-UTILS-1.1.0.20"
             }
           }
         },
-        "description": "Cloudbreak official image"
+        "images": {
+          "aws": {
+            "ap-northeast-1": "ami-0fc3016e",
+            "ap-northeast-2": "ami-4d6aa023",
+            "ap-southeast-1": "ami-ced60fad",
+            "ap-southeast-2": "ami-9f9eaafc",
+            "eu-central-1": "ami-cd4cbaa2",
+            "eu-west-1": "ami-0b067378",
+            "sa-east-1": "ami-70a5331c",
+            "us-east-1": "ami-70a73c67",
+            "us-west-1": "ami-3fe8ab5f",
+            "us-west-2": "ami-6bf9330b"
+          }
+        },
+        "description": "Cloudbreak's HDF official image"
       }
     ]
   },
@@ -1208,8 +1183,8 @@
           "1.4.0"
         ],
         "images": [
-          "2.4.0.0-1157-3495b462-91aa-4c94-83da-2ecdb936936a-2.5.0.0-1200",
-          "2.4.0.0-1157-45293153-c8bd-4e4f-bdb9-0d01d429532b-2.4.10.0-80"
+          "2.4.0.0-1157-6eff4b14-482f-4e31-8e15-cb3a153d1030-2.5.0.0-1200",
+          "2.4.0.0-1157-290254ec-4574-4f42-bbfa-d036913b80ff-2.4.10.0-80"
         ]
       },
       {
@@ -1217,8 +1192,8 @@
           "1.5.0"
         ],
         "images": [
-          "2.4.0.1-1-06c985a7-0ffd-4412-b4fa-97ce9b9ee642-2.5.0.0",
-          "2.4.0.1-1-af30d944-ef44-4baf-877f-e0d32c440396-2.4.10.0-80"
+          "2.4.0.1-1-d6b1be0f-d1ec-4236-8a01-3ae5ce2d71a3-2.5.0.0",
+          "2.4.0.1-1-e8eccde2-45cb-45b3-9819-4691c789e460-2.4.10.0-80"
         ]
       },
       {
@@ -1226,8 +1201,8 @@
           "1.6.0"
         ],
         "images": [
-          "2.4.1.0-19-d92fd73f-a6bd-4d80-9fc2-dc67f795001f-2.5.0.1-8",
-          "2.4.1.0-19-84f346ad-2c1c-4502-9139-951e65634961-2.4.10.0-80"
+          "2.4.1.0-19-664e8908-c502-4b43-b0b7-fe23e6100122-2.5.0.1-8",
+          "2.4.1.0-19-e24d0638-1690-41fc-a907-1a61cfa9bd0a-2.4.10.0-80"
         ]
       },
       {
@@ -1235,7 +1210,7 @@
           "1.7.0"
         ],
         "images": [
-          "2.4.1.0-19-6344e9a3-7b48-45bb-9cd1-e332988bb431-2.5.0.1-31"
+          "2.4.1.0-19-4c88ad27-9fbe-4288-8299-fa61e9d8b8af-2.5.0.1-31"
         ]
       },
       {
@@ -1243,7 +1218,7 @@
           "1.6.1"
         ],
         "images": [
-          "2.4.1.0-22-3224dd1b-6642-4508-87ed-6afd38c12e6a-2.5.0.1-60"
+          "2.4.1.0-22-787b6974-3bf8-41c1-9492-d61bd139af86-2.5.0.1-60"
         ]
       },
       {
@@ -1251,7 +1226,7 @@
           "1.8.0"
         ],
         "images": [
-          "2.4.1.0-22-3224dd1b-6642-4508-87ed-6afd38c12e6a-2.5.0.1-60"
+          "2.4.1.0-22-787b6974-3bf8-41c1-9492-d61bd139af86-2.5.0.1-60"
         ]
       },
       {
@@ -1259,7 +1234,7 @@
           "1.10.0"
         ],
         "images": [
-          "2.4.2.2-1-51202c04-d18f-47d4-9025-cb8afd512c13-2.5.0.1-139"
+          "2.4.2.2-1-734767a1-dd05-4a73-a8cf-75964997963b-2.5.0.1-139"
         ]
       },
       {
@@ -1267,7 +1242,7 @@
           "1.11.0"
         ],
         "images": [
-          "2.4.2.2-1-64c06467-02b1-4886-af91-5dbbed205075-2.5.0.1-139"
+          "2.4.2.2-1-cde06be0-b50a-4e6d-98ce-45366988e63d-2.5.0.1-139"
         ]
       },
       {
@@ -1275,7 +1250,7 @@
           "1.11.1"
         ],
         "images": [
-          "2.4.2.2-1-64c06467-02b1-4886-af91-5dbbed205075-2.5.0.1-139"
+          "2.4.2.2-1-cde06be0-b50a-4e6d-98ce-45366988e63d-2.5.0.1-139"
         ]
       },
       {
@@ -1283,8 +1258,8 @@
           "1.12.0"
         ],
         "images": [
-          "2.4.2.2-1-918d9c92-e420-4366-b0a6-c162ed65d27a-2.5.0.1-139",
-          "2.5.0.0-608-31bd0840-2d53-43ff-8c8b-62eff14b4d99-2.6.0.0-331"
+          "2.4.2.2-1-8c667c54-5365-43de-a026-16c2e7235c55-2.5.0.1-139",
+          "2.5.0.0-608-3f571a38-2fa3-4c6c-9452-057b27adacdd-2.6.0.0-331"
         ]
       },
       {
@@ -1292,8 +1267,8 @@
           "1.13.0"
         ],
         "images": [
-          "2.4.2.2-1-0f4205d5-320b-4d89-b79f-15440007d62a-2.5.0.1-210",
-          "2.5.0.0-771-6c686a6f-9e0e-47d4-b909-37de1f200b6a-2.6.0.0-422"
+          "2.4.2.2-1-faf7cd22-9f61-4186-bf88-89b541400ddc-2.5.0.1-210",
+          "2.5.0.0-771-43f25ef0-0ecd-4802-9563-183be5814978-2.6.0.0-422"
         ]
       },
       {
@@ -1301,8 +1276,8 @@
           "1.13.1"
         ],
         "images": [
-          "2.4.2.2-1-0f4205d5-320b-4d89-b79f-15440007d62a-2.5.0.1-210",
-          "2.5.0.0-771-6c686a6f-9e0e-47d4-b909-37de1f200b6a-2.6.0.0-422"
+          "2.4.2.2-1-faf7cd22-9f61-4186-bf88-89b541400ddc-2.5.0.1-210",
+          "2.5.0.0-771-43f25ef0-0ecd-4802-9563-183be5814978-2.6.0.0-422"
         ]
       },
       {
@@ -1310,8 +1285,8 @@
           "1.14.1"
         ],
         "images": [
-          "2.4.2.2-1-b143e21c-3227-4121-89b9-ac832e04866e-2.5.0.1-265",
-          "2.5.0.0-1096-d27177f6-13f4-4475-8c4d-739ae3e6d8cf-2.6.0.0-598"
+          "2.4.2.2-1-88a52f8b-7cf8-4e1c-a81a-8917eae25db8-2.5.0.1-265",
+          "2.5.0.0-1096-328d571d-d95d-4a69-a7f3-6bfbba0e3950-2.6.0.0-598"
         ]
       },
       {
@@ -1319,8 +1294,8 @@
           "1.14.2"
         ],
         "images": [
-          "2.4.2.2-1-b143e21c-3227-4121-89b9-ac832e04866e-2.5.0.1-265",
-          "2.5.0.3-7-dd7c1345-0327-4d9c-92f1-0b60d23ebfd6-2.6.1.0-22"
+          "2.4.2.2-1-88a52f8b-7cf8-4e1c-a81a-8917eae25db8-2.5.0.1-265",
+          "2.5.0.3-7-0af7ea50-d096-4c2a-8d5b-32f323cef86b-2.6.1.0-22"
         ]
       },
       {
@@ -1328,8 +1303,8 @@
           "1.14.3"
         ],
         "images": [
-          "2.4.2.2-1-b143e21c-3227-4121-89b9-ac832e04866e-2.5.0.1-265",
-          "2.5.0.3-7-dd7c1345-0327-4d9c-92f1-0b60d23ebfd6-2.6.1.0-22"
+          "2.4.2.2-1-88a52f8b-7cf8-4e1c-a81a-8917eae25db8-2.5.0.1-265",
+          "2.5.0.3-7-0af7ea50-d096-4c2a-8d5b-32f323cef86b-2.6.1.0-22"
         ]
       },
       {
@@ -1337,8 +1312,8 @@
           "1.14.4"
         ],
         "images": [
-          "2.4.2.2-1-b143e21c-3227-4121-89b9-ac832e04866e-2.5.0.1-265",
-          "2.5.0.3-7-6d09a672-fae3-4146-9eb2-664038b2fb15-2.6.1.0-55"
+          "2.4.2.2-1-88a52f8b-7cf8-4e1c-a81a-8917eae25db8-2.5.0.1-265",
+          "2.5.0.3-7-27d7cb22-3d7e-485a-9266-10fb09d632f4-2.6.1.0-55"
         ]
       },
       {
@@ -1346,81 +1321,8 @@
           "1.16.0"
         ],
         "images": [
-          "2.4.2.2-1-b143e21c-3227-4121-89b9-ac832e04866e-2.5.0.1-265",
-          "2.5.0.3-7-6d09a672-fae3-4146-9eb2-664038b2fb15-2.6.1.0-55"
-        ]
-      },
-      {
-        "versions": [
-          "1.14.0"
-        ],
-        "images": [
-          "2.4.2.2-1-7420b83e-8d48-4cb6-8a29-be7ec6f8f6bb-2.5.0.1-265",
-          "2.5.0.0-1094-9f235f3f-bfbd-453c-8415-9d001d7f4b63-2.6.0.0-598"
-        ]
-      },
-      {
-        "versions": [
-          "1.16.1"
-        ],
-        "images": [
-          "2.4.2.2-1-7420b83e-8d48-4cb6-8a29-be7ec6f8f6bb-2.5.0.1-265",
-          "2.5.1.2-1-5025794c-99f1-4363-8a39-42e4c229b7ef-2.6.1.4-1"
-        ]
-      },
-      {
-        "versions": [
-          "2.0.0",
-          "2.0.0-rc.1",
-          "2.1.0-dev.68"
-        ],
-        "images": [
-          "2.4.2.2-1-7420b83e-8d48-4cb6-8a29-be7ec6f8f6bb-2.5.0.1-265",
-          "2.5.0.2-65-4efa2a89-0c08-4a54-b9cd-c94bf7a11eb3-2.6.0.1-152",
-          "2.5.0.2-65-9670a9d4-5214-4fdb-aa22-24b4ae5a2b23-2.6.0.1-145"
-        ]
-      },
-      {
-        "versions": [
-          "1.16.3"
-        ],
-        "images": [
-          "2.4.2.2-1-ca0a0c89-0b7f-401a-9689-d36270612809-2.5.0.1-265",
-          "2.5.1.9-4-a3613863-37c0-4046-8cd8-cfe52f10f7fa-2.6.1.4-2"
-        ]
-      },
-      {
-        "versions": [
-          "1.16.4"
-        ],
-        "images": [
-          "2.4.2.2-1-ca0a0c89-0b7f-401a-9689-d36270612809-2.5.0.1-265",
-          "2.5.1.9-4-a3613863-37c0-4046-8cd8-cfe52f10f7fa-2.6.1.4-2"
-        ]
-      },
-      {
-        "versions": [
-          "1.6.2"
-        ],
-        "images": [
-          "2.5.0.0-608-1c12249d-3fd7-45c9-a898-b9ddb3ff5d05-2.6.0.0-331"
-        ]
-      },
-      {
-        "versions": [
-          "1.6.3"
-        ],
-        "images": [
-          "2.5.0.0-771-6c686a6f-9e0e-47d4-b909-37de1f200b6a-2.6.0.0-422"
-        ]
-      },
-      {
-        "versions": [
-          "1.16.2"
-        ],
-        "images": [
-          "2.5.1.9-4-a3613863-37c0-4046-8cd8-cfe52f10f7fa-2.6.1.4-2",
-          "2.5.2.0-4f27fd1c-7ab8-481e-b9d5-2a3a8890b3d7-2.6.2.0"
+          "2.4.2.2-1-88a52f8b-7cf8-4e1c-a81a-8917eae25db8-2.5.0.1-265",
+          "2.5.0.3-7-27d7cb22-3d7e-485a-9266-10fb09d632f4-2.6.1.0-55"
         ]
       },
       {
@@ -1428,9 +1330,86 @@
           "1.16.5"
         ],
         "images": [
-          "2.5.2.5-3-cfc92bed-e194-4ec7-945b-f1a90902b1af-2.6.2.4-5",
-          "tyuio-ghjkl-vbnmk",
-          "poiuy-lkjhg-mnbvc"
+          "2.4.2.2-1-88a52f8b-7cf8-4e1c-a81a-8917eae25db8-2.5.0.1-265",
+          "2.5.2.5-3-9dc4e453-c2ff-43b4-a2af-9800e5cf4c57-2.6.2.4-5",
+          "2.5.2.5-3-9dc4e453-c2ff-43b4-a2af-9800e5cf4c57-2.6.2.4-5",
+          "f6e778fc-7f17-4535-9021-515351df3691"
+        ]
+      },
+      {
+        "versions": [
+          "1.14.0"
+        ],
+        "images": [
+          "2.4.2.2-1-9a308050-4d5b-45a9-bfee-ce1cc444953d-2.5.0.1-265",
+          "2.5.0.0-1094-4b02d4f4-bc8b-41fb-8653-04c0828f75f6-2.6.0.0-598"
+        ]
+      },
+      {
+        "versions": [
+          "1.16.1"
+        ],
+        "images": [
+          "2.4.2.2-1-9a308050-4d5b-45a9-bfee-ce1cc444953d-2.5.0.1-265",
+          "2.5.1.2-1-ee64754a-091e-4251-8c27-2326d583928b-2.6.1.4-1"
+        ]
+      },
+      {
+        "versions": [
+          "2.0.0",
+          "2.1.0-dev.1"
+        ],
+        "images": [
+          "2.4.2.2-1-9a308050-4d5b-45a9-bfee-ce1cc444953d-2.5.0.1-265",
+          "2.5.0.2-65-fe0ba14f-cb44-4573-ac8c-23cbc72bbd57-2.6.0.1-152",
+          "2.5.0.2-65-5288855d-d7b9-4b90-b326-ab4b168cf581-2.6.0.1-145",
+          "f6e778fc-7f17-4535-9021-515351df3691",
+          "9958938a-1261-48e2-aff9-dbcb2cebf6cd"
+        ]
+      },
+      {
+        "versions": [
+          "1.16.3"
+        ],
+        "images": [
+          "2.4.2.2-1-9e3ccdca-fa64-42eb-ab29-b1450767bbd8-2.5.0.1-265",
+          "2.5.1.9-4-ccbb32dc-6c9f-43f1-8a09-64b598fda733-2.6.1.4-2"
+        ]
+      },
+      {
+        "versions": [
+          "1.16.4",
+          "2.0.0-rc.1",
+          "2.0.0-rc.2"
+        ],
+        "images": [
+          "2.4.2.2-1-9e3ccdca-fa64-42eb-ab29-b1450767bbd8-2.5.0.1-265",
+          "2.5.1.9-4-ccbb32dc-6c9f-43f1-8a09-64b598fda733-2.6.1.4-2"
+        ]
+      },
+      {
+        "versions": [
+          "1.6.2"
+        ],
+        "images": [
+          "2.5.0.0-608-31139004-fc4c-4172-ab39-9ca5c473fe28-2.6.0.0-331"
+        ]
+      },
+      {
+        "versions": [
+          "1.6.3"
+        ],
+        "images": [
+          "2.5.0.0-771-43f25ef0-0ecd-4802-9563-183be5814978-2.6.0.0-422"
+        ]
+      },
+      {
+        "versions": [
+          "1.16.2"
+        ],
+        "images": [
+          "2.5.1.9-4-ccbb32dc-6c9f-43f1-8a09-64b598fda733-2.6.1.4-2",
+          "2.5.2.0-a7b0e31f-0469-405c-834d-24a3f045dacb-2.6.2.0"
         ]
       }
     ]
