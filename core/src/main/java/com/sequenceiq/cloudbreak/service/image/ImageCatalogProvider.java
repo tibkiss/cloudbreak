@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.sequenceiq.cloudbreak.client.RestClientUtil;
-import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakImageCatalog;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakImageCatalogV2;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakVersion;
 import com.sequenceiq.cloudbreak.core.CloudbreakImageInvalidException;
@@ -31,30 +30,6 @@ public class ImageCatalogProvider {
 
     @Value("${cb.etc.config.dir}")
     private String etcConfigDir;
-
-    public CloudbreakImageCatalog getImageCatalog(String customImageCatalog) {
-        if (defaultCatalogUrl == null && customImageCatalog == null) {
-            LOGGER.warn("No image catalog was defined!");
-            return null;
-        }
-        String catalogUrl = defaultCatalogUrl;
-        if (customImageCatalog != null) {
-            catalogUrl = customImageCatalog;
-        }
-        LOGGER.info("Used Image Catalog: {}", catalogUrl);
-        try {
-            if (catalogUrl.startsWith("http")) {
-                Client client = RestClientUtil.get();
-                WebTarget target = client.target(catalogUrl);
-                return target.request().get().readEntity(CloudbreakImageCatalog.class);
-            } else {
-                LOGGER.warn("Image catalog URL is not valid: {}", catalogUrl);
-            }
-        } catch (RuntimeException e) {
-            LOGGER.warn("Failed to get image catalog", e);
-        }
-        return null;
-    }
 
     public CloudbreakImageCatalogV2 getImageCatalogV2() {
         CloudbreakImageCatalogV2 catalog = null;
@@ -99,16 +74,16 @@ public class ImageCatalogProvider {
         return defaultCatalogUrl;
     }
 
-    private String readCatalogFromFile(String catalogUrl) throws IOException {
-        File customCatalogFile = new File(etcConfigDir, catalogUrl);
-        return FileReaderUtils.readFileFromPath(customCatalogFile.toPath());
-    }
-
     public void setDefaultCatalogUrl(String defaultCatalogUrl) {
         this.defaultCatalogUrl = defaultCatalogUrl;
     }
 
     void setEtcConfigDir(String etcConfigDir) {
         this.etcConfigDir = etcConfigDir;
+    }
+
+    private String readCatalogFromFile(String catalogUrl) throws IOException {
+        File customCatalogFile = new File(etcConfigDir, catalogUrl);
+        return FileReaderUtils.readFileFromPath(customCatalogFile.toPath());
     }
 }
