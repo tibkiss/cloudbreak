@@ -84,4 +84,15 @@ public class Image {
     public void setImageSetsByProvider(Map<String, Map<String, String>> imageSetsByProvider) {
         this.imageSetsByProvider = imageSetsByProvider;
     }
+
+    @Override
+    public String toString() {
+        return "Image{"
+                + "uuid='" + uuid + '\''
+                + ", date='" + date + '\''
+                + ", description='" + description + '\''
+                + ", os='" + os + '\''
+                + ", version='" + version + '\''
+                + '}';
+    }
 }

@@ -1,7 +1,9 @@
 package com.sequenceiq.cloudbreak.service.image;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,6 +22,7 @@ import com.sequenceiq.cloudbreak.cloud.model.catalog.HDFImage;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPImage;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.Image;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.Images;
+import com.sequenceiq.cloudbreak.core.CloudbreakImageNotFoundException;
 
 @Component
 public class ImageCatalogService {
@@ -38,6 +41,38 @@ public class ImageCatalogService {
 
     public Images getImages(String provider) {
         return getImages(provider, cbVersion);
+    }
+
+    public List<Image> getBaseImages(String platform) throws CloudbreakImageNotFoundException {
+        Images images = getImages(platform);
+        List<Image> baseImages = images.getBaseImages();
+        if (baseImages.isEmpty()) {
+            String msg = String.format("Could not find any base image for platform '%s' and Cloudbreak version '%s'.", platform, cbVersion);
+            throw new CloudbreakImageNotFoundException(msg);
+        }
+        return baseImages;
+    }
+
+    public Image getImage(String imageId) throws CloudbreakImageNotFoundException {
+        CloudbreakImageCatalogV2 imageCatalog = imageCatalogProvider.getImageCatalogV2();
+        Images images = imageCatalog.getImages();
+        Optional<? extends Image> image = findFirstWithImageId(imageId, images.getBaseImages());
+        if (!image.isPresent()) {
+            image = findFirstWithImageId(imageId, images.getHdpImages());
+        }
+        if (!image.isPresent()) {
+            image = findFirstWithImageId(imageId, images.getHdfImages());
+        }
+        if (!image.isPresent()) {
+            throw new CloudbreakImageNotFoundException(String.format("Could not find any image with id: '%s'.", imageId));
+        }
+        return image.get();
+    }
+
+    private Optional<? extends Image> findFirstWithImageId(String imageId, Collection<? extends Image> images) {
+        return images.stream()
+                .filter(img -> img.getUuid().equals(imageId))
+                .findFirst();
     }
 
     public Images getImages(String platform, String cbVersion) {
