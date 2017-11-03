@@ -1,11 +1,11 @@
-package com.sequenceiq.cloudbreak.cloud.model.catalog;
+package com.sequenceiq.cloudbreak.cloud.model.component;
 
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HDPRepo {
+public class StackRepoDetails {
 
     public static final String REPO_ID_TAG = "repoid";
 
@@ -63,6 +63,6 @@ public class HDPRepo {
 
     @Override
     public String toString() {
-        return "HDPRepo{stack='" + stack.get(REPO_ID_TAG) + "'; utils='" + util.get(REPO_ID_TAG) + "'}";
+        return "StackRepoDetails{stack='" + stack.get(REPO_ID_TAG) + "'; utils='" + util.get(REPO_ID_TAG) + "'}";
     }
 }

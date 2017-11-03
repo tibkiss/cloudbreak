@@ -75,6 +75,9 @@ public class ImagesToImagesResponseJsonConverter extends AbstractConversionServi
         StackRepoDetailsJson json = new StackRepoDetailsJson();
         json.setStack(new HashMap<>(repo.getStack()));
         json.setUtil(new HashMap<>(repo.getUtil()));
+        if (repo.getKnox() != null && !repo.getKnox().isEmpty()) {
+            json.setKnox(repo.getKnox());
+        }
         return json;
     }
 }

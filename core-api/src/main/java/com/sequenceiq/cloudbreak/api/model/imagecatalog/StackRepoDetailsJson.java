@@ -15,6 +15,9 @@ public class StackRepoDetailsJson implements JsonEntity {
     @JsonProperty("util")
     private Map<String, String> util;
 
+    @JsonProperty("knox")
+    private Map<String, String> knox;
+
     public Map<String, String> getStack() {
         return stack;
     }
@@ -31,4 +34,11 @@ public class StackRepoDetailsJson implements JsonEntity {
         this.util = util;
     }
 
+    public Map<String, String> getKnox() {
+        return knox;
+    }
+
+    public void setKnox(Map<String, String> knox) {
+        this.knox = knox;
+    }
 }

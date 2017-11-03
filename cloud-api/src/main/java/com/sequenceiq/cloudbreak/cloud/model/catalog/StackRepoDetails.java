@@ -18,6 +18,9 @@ public class StackRepoDetails {
     @JsonProperty("util")
     private Map<String, String> util;
 
+    @JsonProperty("knox")
+    private Map<String, String> knox;
+
     public Map<String, String> getStack() {
         return stack;
     }
@@ -34,8 +37,16 @@ public class StackRepoDetails {
         this.util = util;
     }
 
+    public Map<String, String> getKnox() {
+        return knox;
+    }
+
+    public void setKnox(Map<String, String> knox) {
+        this.knox = knox;
+    }
+
     @Override
     public String toString() {
-        return "HDPRepo{stack='" + stack.get(REPO_ID_TAG) + "'; utils='" + util.get(REPO_ID_TAG) + "'}";
+        return "StackRepoDetails{stack='" + stack.get(REPO_ID_TAG) + "'; utils='" + util.get(REPO_ID_TAG) + "'}";
     }
 }

@@ -24,6 +24,8 @@ import com.sequenceiq.cloudbreak.cloud.model.Image;
 import com.sequenceiq.cloudbreak.cloud.model.Platform;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.HDFImage;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPImage;
+import com.sequenceiq.cloudbreak.cloud.model.catalog.StackDetails;
+import com.sequenceiq.cloudbreak.cloud.model.component.StackRepoDetails;
 import com.sequenceiq.cloudbreak.common.type.ComponentType;
 import com.sequenceiq.cloudbreak.core.CloudbreakImageNotFoundException;
 import com.sequenceiq.cloudbreak.domain.Component;
@@ -134,14 +136,21 @@ public class ImageService {
         if (imgFromCatalog instanceof HDPImage) {
             HDPImage hdpImage = (HDPImage) imgFromCatalog;
             components.add(getAmbariComponent(stack, hdpImage.getVersion()));
+
+            StackDetails hdpStack = hdpImage.getHdp();
+            StackRepoDetails repo = createHDPRepo(hdpStack);
             Component hdpRepoComponent = new Component(ComponentType.HDP_REPO_DETAILS, ComponentType.HDP_REPO_DETAILS.name(),
-                    new Json(hdpImage.getHdp()), stack);
+                    new Json(repo), stack);
             components.add(hdpRepoComponent);
         } else if (imgFromCatalog instanceof HDFImage) {
             HDFImage hdfImage = (HDFImage) imgFromCatalog;
             components.add(getAmbariComponent(stack, hdfImage.getVersion()));
+
+
+            StackDetails hdfStack = hdfImage.getHdf();
+            StackRepoDetails hdfRepo = createHDFRepo(hdfStack);
             Component hdpRepoComponent = new Component(ComponentType.HDF_REPO_DETAILS, ComponentType.HDF_REPO_DETAILS.name(),
-                    new Json(hdfImage.getHdf()), stack);
+                    new Json(hdfRepo), stack);
             components.add(hdpRepoComponent);
         }
         return components;
@@ -153,5 +162,23 @@ public class ImageService {
         ambariRepo.setVersion(version);
         return new Component(ComponentType.AMBARI_REPO_DETAILS, ComponentType.AMBARI_REPO_DETAILS.name(),
                 new Json(ambariRepo), stack);
+    }
+
+    private StackRepoDetails createHDPRepo(StackDetails hdpStack) {
+        StackRepoDetails repo = new StackRepoDetails();
+        repo.setHdpVersion(hdpStack.getVersion());
+        repo.setStack(hdpStack.getRepo().getStack());
+        repo.setUtil(hdpStack.getRepo().getUtil());
+        return repo;
+    }
+
+    private StackRepoDetails createHDFRepo(StackDetails hdfStack) {
+        com.sequenceiq.cloudbreak.cloud.model.catalog.StackRepoDetails hdfRepo = hdfStack.getRepo();
+        StackRepoDetails repo = new StackRepoDetails();
+        repo.setHdpVersion(hdfStack.getVersion());
+        repo.setStack(hdfRepo.getStack());
+        repo.setUtil(hdfRepo.getUtil());
+        repo.setKnox(hdfRepo.getKnox());
+        return repo;
     }
 }
