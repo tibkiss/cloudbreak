@@ -29,6 +29,9 @@ public class Image {
     @JsonProperty("images")
     private Map<String, Map<String, String>> imageSetsByProvider;
 
+    @JsonProperty("stack-details")
+    private StackDetails stackDetails;
+
     public String getDate() {
         return date;
     }
@@ -83,6 +86,14 @@ public class Image {
 
     public void setImageSetsByProvider(Map<String, Map<String, String>> imageSetsByProvider) {
         this.imageSetsByProvider = imageSetsByProvider;
+    }
+
+    public StackDetails getStackDetails() {
+        return stackDetails;
+    }
+
+    public void setStackDetails(StackDetails stackDetails) {
+        this.stackDetails = stackDetails;
     }
 
     @Override

@@ -18,8 +18,6 @@ import org.springframework.stereotype.Component;
 
 import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakImageCatalogV2;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.CloudbreakVersion;
-import com.sequenceiq.cloudbreak.cloud.model.catalog.HDFImage;
-import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPImage;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.Image;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.Images;
 import com.sequenceiq.cloudbreak.core.CloudbreakImageNotFoundException;
@@ -97,13 +95,13 @@ public class ImageCatalogService {
                     .collect(Collectors.toList());
             images.setBaseImages(baseImages);
 
-            List<HDPImage> hdpImages = imageCatalog.getImages().getHdpImages().stream()
+            List<Image> hdpImages = imageCatalog.getImages().getHdpImages().stream()
                     .filter(img -> vMImageUUIDs.contains(img.getUuid()))
                     .filter(img -> img.getImageSetsByProvider().keySet().stream().anyMatch(p -> p.equalsIgnoreCase(platform)))
                     .collect(Collectors.toList());
             images.setHdpImages(hdpImages);
 
-            List<HDFImage> hdfImages = imageCatalog.getImages().getHdfImages().stream()
+            List<Image> hdfImages = imageCatalog.getImages().getHdfImages().stream()
                     .filter(img -> vMImageUUIDs.contains(img.getUuid()))
                     .filter(img -> img.getImageSetsByProvider().keySet().stream().anyMatch(p -> p.equalsIgnoreCase(platform)))
                     .collect(Collectors.toList());

@@ -22,8 +22,6 @@ import com.sequenceiq.cloudbreak.cloud.PlatformParameters;
 import com.sequenceiq.cloudbreak.cloud.model.AmbariRepo;
 import com.sequenceiq.cloudbreak.cloud.model.Image;
 import com.sequenceiq.cloudbreak.cloud.model.Platform;
-import com.sequenceiq.cloudbreak.cloud.model.catalog.HDFImage;
-import com.sequenceiq.cloudbreak.cloud.model.catalog.HDPImage;
 import com.sequenceiq.cloudbreak.cloud.model.catalog.StackDetails;
 import com.sequenceiq.cloudbreak.cloud.model.component.StackRepoDetails;
 import com.sequenceiq.cloudbreak.common.type.ComponentType;
@@ -133,25 +131,21 @@ public class ImageService {
         Component imageComponent = new Component(ComponentType.IMAGE, ComponentType.IMAGE.name(), new Json(image), stack);
         components.add(imageComponent);
 
-        if (imgFromCatalog instanceof HDPImage) {
-            HDPImage hdpImage = (HDPImage) imgFromCatalog;
-            components.add(getAmbariComponent(stack, hdpImage.getVersion()));
+        if (imgFromCatalog.getStackDetails() != null) {
+            components.add(getAmbariComponent(stack, imgFromCatalog.getVersion()));
+            StackDetails stackDetails = imgFromCatalog.getStackDetails();
 
-            StackDetails hdpStack = hdpImage.getHdp();
-            StackRepoDetails repo = createHDPRepo(hdpStack);
-            Component hdpRepoComponent = new Component(ComponentType.HDP_REPO_DETAILS, ComponentType.HDP_REPO_DETAILS.name(),
-                    new Json(repo), stack);
-            components.add(hdpRepoComponent);
-        } else if (imgFromCatalog instanceof HDFImage) {
-            HDFImage hdfImage = (HDFImage) imgFromCatalog;
-            components.add(getAmbariComponent(stack, hdfImage.getVersion()));
-
-
-            StackDetails hdfStack = hdfImage.getHdf();
-            StackRepoDetails hdfRepo = createHDFRepo(hdfStack);
-            Component hdpRepoComponent = new Component(ComponentType.HDF_REPO_DETAILS, ComponentType.HDF_REPO_DETAILS.name(),
-                    new Json(hdfRepo), stack);
-            components.add(hdpRepoComponent);
+            Component stackRepoComponent;
+            if (!imgFromCatalog.getStackDetails().getRepo().getKnox().isEmpty()) {
+                StackRepoDetails hdfRepo = createHDFRepo(stackDetails);
+                stackRepoComponent = new Component(ComponentType.HDF_REPO_DETAILS, ComponentType.HDF_REPO_DETAILS.name(),
+                        new Json(hdfRepo), stack);
+            } else {
+                StackRepoDetails repo = createHDPRepo(stackDetails);
+                stackRepoComponent = new Component(ComponentType.HDP_REPO_DETAILS, ComponentType.HDP_REPO_DETAILS.name(),
+                        new Json(repo), stack);
+            }
+            components.add(stackRepoComponent);
         }
         return components;
     }

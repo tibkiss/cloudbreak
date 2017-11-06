@@ -12,10 +12,10 @@ public class Images {
     private List<Image> baseImages;
 
     @JsonProperty("hdp-images")
-    private List<HDPImage> hdpImages;
+    private List<Image> hdpImages;
 
     @JsonProperty("hdf-images")
-    private List<HDFImage> hdfImages;
+    private List<Image> hdfImages;
 
     public List<Image> getBaseImages() {
         return baseImages;
@@ -25,19 +25,19 @@ public class Images {
         this.baseImages = baseImages;
     }
 
-    public List<HDPImage> getHdpImages() {
+    public List<Image> getHdpImages() {
         return hdpImages;
     }
 
-    public void setHdpImages(List<HDPImage> hdpImages) {
+    public void setHdpImages(List<Image> hdpImages) {
         this.hdpImages = hdpImages;
     }
 
-    public List<HDFImage> getHdfImages() {
+    public List<Image> getHdfImages() {
         return hdfImages;
     }
 
-    public void setHdfImages(List<HDFImage> hdfImages) {
+    public void setHdfImages(List<Image> hdfImages) {
         this.hdfImages = hdfImages;
     }
 }

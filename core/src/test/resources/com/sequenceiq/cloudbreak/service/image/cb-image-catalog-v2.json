@@ -49,7 +49,7 @@
       {
         "date": "2016-08-14",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.0-1200",
@@ -89,7 +89,7 @@
       {
         "date": "2016-08-15",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
@@ -129,7 +129,7 @@
       {
         "date": "2016-09-14",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.0/",
@@ -186,7 +186,7 @@
       {
         "date": "2016-09-01",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
@@ -226,7 +226,7 @@
       {
         "date": "2016-09-16",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-8",
@@ -263,7 +263,7 @@
       {
         "date": "2016-09-20",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.4.10.0-80",
@@ -300,7 +300,7 @@
       {
         "date": "2016-09-26",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-31",
@@ -337,7 +337,7 @@
       {
         "date": "2016-10-12",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.5.0.1-60",
@@ -374,7 +374,7 @@
       {
         "date": "2016-12-13",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
@@ -411,7 +411,7 @@
       {
         "date": "2017-01-05",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
@@ -448,7 +448,7 @@
       {
         "date": "2017-01-19",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-139",
@@ -505,7 +505,7 @@
       {
         "date": "2017-02-10",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-210",
@@ -542,7 +542,7 @@
       {
         "date": "2017-03-23",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265",
@@ -579,7 +579,7 @@
       {
         "date": "2017-03-23",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265",
@@ -616,7 +616,7 @@
       {
         "date": "2017-08-07",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.0.1-265",
@@ -653,7 +653,7 @@
       {
         "date": "2017-01-13",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.0-331",
@@ -690,7 +690,7 @@
       {
         "date": "2017-01-19",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-331",
@@ -727,7 +727,7 @@
       {
         "date": "2017-02-10",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-422",
@@ -764,7 +764,7 @@
       {
         "date": "2017-03-16",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-598",
@@ -801,7 +801,7 @@
       {
         "date": "2017-03-23",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.0.0-598",
@@ -838,7 +838,7 @@
       {
         "date": "2017-06-12",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.1-152",
@@ -875,7 +875,7 @@
       {
         "date": "2017-06-08",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.0.1-145",
@@ -912,7 +912,7 @@
       {
         "date": "2017-05-11",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.1.0-55",
@@ -949,7 +949,7 @@
       {
         "date": "2017-04-24",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.1.0-22",
@@ -986,7 +986,7 @@
       {
         "date": "2017-07-05",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.1.4-1",
@@ -1023,7 +1023,7 @@
       {
         "date": "2017-07-19",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://private-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.1.4-2",
@@ -1060,7 +1060,7 @@
       {
         "date": "2017-09-14",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.6.2.0",
@@ -1097,7 +1097,7 @@
       {
         "date": "2017-10-24",
         "description": "Cloudbreak official image",
-        "hdp": {
+        "stack-details": {
           "repo": {
             "stack": {
               "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/HDP/centos6/2.x/BUILDS/2.6.2.4-5",
@@ -1142,7 +1142,7 @@
           "redhat6": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos6/2.x/BUILDS/2.4.0.0-1157/",
           "redhat7": "http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos7/2.x/BUILDS/2.4.0.0-1157/"
         },
-        "hdf": {
+        "stack-details": {
           "version": "2.1.16.0-800",
           "repo": {
             "stack": {

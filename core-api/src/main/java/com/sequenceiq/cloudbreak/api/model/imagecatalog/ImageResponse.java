@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImageResponseBase implements JsonEntity {
+public class ImageResponse implements JsonEntity {
 
     @JsonProperty("date")
     private String date;
@@ -29,6 +29,9 @@ public class ImageResponseBase implements JsonEntity {
 
     @JsonProperty("images")
     private Map<String, Map<String, String>> imageSetsByProvider;
+
+    @JsonProperty("stack-details")
+    private StackDetailsJson stackDetails;
 
     public String getDate() {
         return date;
@@ -84,5 +87,13 @@ public class ImageResponseBase implements JsonEntity {
 
     public void setImageSetsByProvider(Map<String, Map<String, String>> imageSetsByProvider) {
         this.imageSetsByProvider = imageSetsByProvider;
+    }
+
+    public StackDetailsJson getStackDetails() {
+        return stackDetails;
+    }
+
+    public void setStackDetails(StackDetailsJson stackDetails) {
+        this.stackDetails = stackDetails;
     }
 }
