@@ -65,7 +65,6 @@ public class ImageCatalogProvider {
                 if (!uuidList.contains(imageId)) {
                     throw new CloudbreakImageInvalidException(String.format("Image with id: %s is not present in ambari-images block", imageId));
                 }
-
             }
         }
     }
