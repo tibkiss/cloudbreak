@@ -13,9 +13,9 @@ public class ImagesResponse implements JsonEntity {
 
     private List<BaseImageResponse> baseImages;
 
-    private List<HDPBaseImageResponse> hdpImages;
+    private List<HDPImageResponse> hdpImages;
 
-    private List<HDFBaseImageResponse> hdfImages;
+    private List<HDFImageResponse> hdfImages;
 
     public List<BaseImageResponse> getBaseImages() {
         return baseImages;
@@ -25,19 +25,19 @@ public class ImagesResponse implements JsonEntity {
         this.baseImages = baseImages;
     }
 
-    public List<HDPBaseImageResponse> getHdpImages() {
+    public List<HDPImageResponse> getHdpImages() {
         return hdpImages;
     }
 
-    public void setHdpImages(List<HDPBaseImageResponse> hdpImages) {
+    public void setHdpImages(List<HDPImageResponse> hdpImages) {
         this.hdpImages = hdpImages;
     }
 
-    public List<HDFBaseImageResponse> getHdfImages() {
+    public List<HDFImageResponse> getHdfImages() {
         return hdfImages;
     }
 
-    public void setHdfImages(List<HDFBaseImageResponse> hdfImages) {
+    public void setHdfImages(List<HDFImageResponse> hdfImages) {
         this.hdfImages = hdfImages;
     }
 }

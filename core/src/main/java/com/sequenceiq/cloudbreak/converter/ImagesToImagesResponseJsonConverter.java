@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDFBaseImageResponse;
-import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDPBaseImageResponse;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDFImageResponse;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDPImageResponse;
 import com.sequenceiq.cloudbreak.api.model.imagecatalog.BaseImageResponse;
 import com.sequenceiq.cloudbreak.api.model.imagecatalog.ImagesResponse;
 import com.sequenceiq.cloudbreak.api.model.imagecatalog.StackDetailsJson;
@@ -33,18 +33,18 @@ public class ImagesToImagesResponseJsonConverter extends AbstractConversionServi
         }
         res.setBaseImages(baseImages);
 
-        List<HDPBaseImageResponse> hdpImages = new ArrayList<>();
+        List<HDPImageResponse> hdpImages = new ArrayList<>();
         for (HDPImage hdpImg: source.getHdpImages()) {
-            HDPBaseImageResponse hdpImgJson = new HDPBaseImageResponse();
+            HDPImageResponse hdpImgJson = new HDPImageResponse();
             copyImageFieldsToJson(hdpImg, hdpImgJson);
             hdpImgJson.setHdp(convertStackDetailsToJson(hdpImg.getHdp()));
             hdpImages.add(hdpImgJson);
         }
         res.setHdpImages(hdpImages);
 
-        List<HDFBaseImageResponse> hdfImages = new ArrayList<>();
+        List<HDFImageResponse> hdfImages = new ArrayList<>();
         for (HDFImage hdfImg: source.getHdfImages()) {
-            HDFBaseImageResponse hdfImgJson = new HDFBaseImageResponse();
+            HDFImageResponse hdfImgJson = new HDFImageResponse();
             copyImageFieldsToJson(hdfImg, hdfImgJson);
             hdfImgJson.setHdf(convertStackDetailsToJson(hdfImg.getHdf()));
             hdfImages.add(hdfImgJson);

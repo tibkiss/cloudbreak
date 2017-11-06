@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
 
-@ApiModel("HDPImagesResponse")
+@ApiModel("HDFImageResponse")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HDFBaseImageResponse extends BaseImageResponse {
+public class HDFImageResponse extends BaseImageResponse {
 
     @JsonProperty("hdf")
     private StackDetailsJson hdf;
