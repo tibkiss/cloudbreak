@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImageJson implements JsonEntity {
+public class BaseImageResponse implements JsonEntity {
 
     @JsonProperty("date")
     private String date;

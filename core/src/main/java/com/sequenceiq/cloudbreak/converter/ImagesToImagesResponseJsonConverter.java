@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDFImageJson;
-import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDPImageJson;
-import com.sequenceiq.cloudbreak.api.model.imagecatalog.ImageJson;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDFBaseImageResponse;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.HDPBaseImageResponse;
+import com.sequenceiq.cloudbreak.api.model.imagecatalog.BaseImageResponse;
 import com.sequenceiq.cloudbreak.api.model.imagecatalog.ImagesResponse;
 import com.sequenceiq.cloudbreak.api.model.imagecatalog.StackDetailsJson;
 import com.sequenceiq.cloudbreak.api.model.imagecatalog.StackRepoDetailsJson;
@@ -25,26 +25,26 @@ public class ImagesToImagesResponseJsonConverter extends AbstractConversionServi
     @Override
     public ImagesResponse convert(Images source) {
         ImagesResponse res = new ImagesResponse();
-        List<ImageJson> baseImages = new ArrayList<>();
+        List<BaseImageResponse> baseImages = new ArrayList<>();
         for (Image baseImg: source.getBaseImages()) {
-            ImageJson imgJson = new ImageJson();
+            BaseImageResponse imgJson = new BaseImageResponse();
             copyImageFieldsToJson(baseImg, imgJson);
             baseImages.add(imgJson);
         }
         res.setBaseImages(baseImages);
 
-        List<HDPImageJson> hdpImages = new ArrayList<>();
+        List<HDPBaseImageResponse> hdpImages = new ArrayList<>();
         for (HDPImage hdpImg: source.getHdpImages()) {
-            HDPImageJson hdpImgJson = new HDPImageJson();
+            HDPBaseImageResponse hdpImgJson = new HDPBaseImageResponse();
             copyImageFieldsToJson(hdpImg, hdpImgJson);
             hdpImgJson.setHdp(convertStackDetailsToJson(hdpImg.getHdp()));
             hdpImages.add(hdpImgJson);
         }
         res.setHdpImages(hdpImages);
 
-        List<HDFImageJson> hdfImages = new ArrayList<>();
+        List<HDFBaseImageResponse> hdfImages = new ArrayList<>();
         for (HDFImage hdfImg: source.getHdfImages()) {
-            HDFImageJson hdfImgJson = new HDFImageJson();
+            HDFBaseImageResponse hdfImgJson = new HDFBaseImageResponse();
             copyImageFieldsToJson(hdfImg, hdfImgJson);
             hdfImgJson.setHdf(convertStackDetailsToJson(hdfImg.getHdf()));
             hdfImages.add(hdfImgJson);
@@ -54,13 +54,17 @@ public class ImagesToImagesResponseJsonConverter extends AbstractConversionServi
         return res;
     }
 
-    private void copyImageFieldsToJson(Image source, ImageJson json) {
+    private void copyImageFieldsToJson(Image source, BaseImageResponse json) {
         json.setDate(source.getDate());
         json.setDescription(source.getDescription());
         json.setOs(source.getOs());
         json.setUuid(source.getUuid());
         json.setVersion(source.getVersion());
-        json.setRepo(new HashMap<>(source.getRepo()));
+        if (source.getRepo() != null) {
+            json.setRepo(new HashMap<>(source.getRepo()));
+        } else {
+            json.setRepo(new HashMap<>());
+        }
         json.setImageSetsByProvider(new HashMap<>(source.getImageSetsByProvider()));
     }
 

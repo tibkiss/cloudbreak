@@ -3,7 +3,6 @@ package com.sequenceiq.cloudbreak.api.model.imagecatalog;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 
 import io.swagger.annotations.ApiModel;
@@ -12,36 +11,33 @@ import io.swagger.annotations.ApiModel;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ImagesResponse implements JsonEntity {
 
-    @JsonProperty("base-images")
-    private List<ImageJson> baseImages;
+    private List<BaseImageResponse> baseImages;
 
-    @JsonProperty("hdp-images")
-    private List<HDPImageJson> hdpImages;
+    private List<HDPBaseImageResponse> hdpImages;
 
-    @JsonProperty("hdf-images")
-    private List<HDFImageJson> hdfImages;
+    private List<HDFBaseImageResponse> hdfImages;
 
-    public List<ImageJson> getBaseImages() {
+    public List<BaseImageResponse> getBaseImages() {
         return baseImages;
     }
 
-    public void setBaseImages(List<ImageJson> baseImages) {
+    public void setBaseImages(List<BaseImageResponse> baseImages) {
         this.baseImages = baseImages;
     }
 
-    public List<HDPImageJson> getHdpImages() {
+    public List<HDPBaseImageResponse> getHdpImages() {
         return hdpImages;
     }
 
-    public void setHdpImages(List<HDPImageJson> hdpImages) {
+    public void setHdpImages(List<HDPBaseImageResponse> hdpImages) {
         this.hdpImages = hdpImages;
     }
 
-    public List<HDFImageJson> getHdfImages() {
+    public List<HDFBaseImageResponse> getHdfImages() {
         return hdfImages;
     }
 
-    public void setHdfImages(List<HDFImageJson> hdfImages) {
+    public void setHdfImages(List<HDFBaseImageResponse> hdfImages) {
         this.hdfImages = hdfImages;
     }
 }
