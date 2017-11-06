@@ -1,88 +1,32 @@
 package com.sequenceiq.cloudbreak.api.model.imagecatalog;
 
-import java.util.Map;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel("BaseImageResponse")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BaseImageResponse implements JsonEntity {
+public class BaseImageResponse extends ImageResponseBase {
 
-    @JsonProperty("date")
-    private String date;
+    private List<StackDetailsJson> hdpStacks;
 
-    @JsonProperty("description")
-    private String description;
+    private List<StackDetailsJson> hdfStacks;
 
-    @JsonProperty("os")
-    private String os;
-
-    @JsonProperty("uuid")
-    private String uuid;
-
-    @JsonProperty("version")
-    private String version;
-
-    @JsonProperty("repo")
-    private Map<String, String> repo;
-
-    @JsonProperty("images")
-    private Map<String, Map<String, String>> imageSetsByProvider;
-
-    public String getDate() {
-        return date;
+    public List<StackDetailsJson> getHdpStacks() {
+        return hdpStacks;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setHdpStacks(List<StackDetailsJson> hdpStacks) {
+        this.hdpStacks = hdpStacks;
     }
 
-    public String getDescription() {
-        return description;
+    public List<StackDetailsJson> getHdfStacks() {
+        return hdfStacks;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getOs() {
-        return os;
-    }
-
-    public void setOs(String os) {
-        this.os = os;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public Map<String, String> getRepo() {
-        return repo;
-    }
-
-    public void setRepo(Map<String, String> repo) {
-        this.repo = repo;
-    }
-
-    public Map<String, Map<String, String>> getImageSetsByProvider() {
-        return imageSetsByProvider;
-    }
-
-    public void setImageSetsByProvider(Map<String, Map<String, String>> imageSetsByProvider) {
-        this.imageSetsByProvider = imageSetsByProvider;
+    public void setHdfStacks(List<StackDetailsJson> hdfStacks) {
+        this.hdfStacks = hdfStacks;
     }
 }

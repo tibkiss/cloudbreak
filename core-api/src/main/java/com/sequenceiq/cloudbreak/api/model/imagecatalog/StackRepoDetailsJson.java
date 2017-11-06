@@ -1,5 +1,6 @@
 package com.sequenceiq.cloudbreak.api.model.imagecatalog;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,13 +11,13 @@ import com.sequenceiq.cloudbreak.api.model.JsonEntity;
 public class StackRepoDetailsJson implements JsonEntity {
 
     @JsonProperty("stack")
-    private Map<String, String> stack;
+    private Map<String, String> stack = new HashMap<>();
 
     @JsonProperty("util")
-    private Map<String, String> util;
+    private Map<String, String> util = new HashMap<>();
 
     @JsonProperty("knox")
-    private Map<String, String> knox;
+    private Map<String, String> knox = new HashMap<>();
 
     public Map<String, String> getStack() {
         return stack;

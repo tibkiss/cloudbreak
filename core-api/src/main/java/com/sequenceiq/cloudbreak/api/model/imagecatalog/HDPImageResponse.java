@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModel;
 
 @ApiModel("HDPImagesResponse")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HDPImageResponse extends BaseImageResponse {
+public class HDPImageResponse extends ImageResponseBase {
 
     @JsonProperty("hdp")
     private StackDetailsJson hdp;

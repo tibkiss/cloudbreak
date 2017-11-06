@@ -9,10 +9,11 @@ import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -54,35 +55,35 @@ public class ClusterCreationSetupService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ClusterCreationSetupService.class);
 
-    @Autowired
+    @Inject
     private FileSystemValidator fileSystemValidator;
 
-    @Autowired
+    @Inject
     private CredentialToCloudCredentialConverter credentialToCloudCredentialConverter;
 
-    @Autowired
-    @Qualifier("conversionService")
+    @Inject
+    @Named("conversionService")
     private ConversionService conversionService;
 
-    @Autowired
+    @Inject
     private ClusterDecorator clusterDecorator;
 
-    @Autowired
+    @Inject
     private ClusterService clusterService;
 
-    @Autowired
+    @Inject
     private ComponentConfigProvider componentConfigProvider;
 
-    @Autowired
+    @Inject
     private BlueprintUtils blueprintUtils;
 
-    @Autowired
+    @Inject
     private DefaultHDPEntries defaultHDPEntries;
 
-    @Autowired
+    @Inject
     private DefaultHDFEntries defaultHDFEntries;
 
-    @Autowired
+    @Inject
     private BlueprintService blueprintService;
 
     public void validate(ClusterRequest request, Stack stack, IdentityUser user) {
