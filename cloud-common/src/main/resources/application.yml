@@ -187,4 +187,4 @@ cb:
       enabled: true
       contentlogging: true
 
-  image.catalog.url: https://s3-eu-west-1.amazonaws.com/cloudbreak-info/output5.json
+  image.catalog.url: https://s3-eu-west-1.amazonaws.com/cloudbreak-info/v2-dev-cb-image-catalog.json

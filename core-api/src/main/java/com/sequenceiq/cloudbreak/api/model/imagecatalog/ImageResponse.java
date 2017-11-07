@@ -30,7 +30,7 @@ public class ImageResponse implements JsonEntity {
     @JsonProperty("images")
     private Map<String, Map<String, String>> imageSetsByProvider;
 
-    @JsonProperty("stack-details")
+    @JsonProperty("stackDetails")
     private StackDetailsJson stackDetails;
 
     public String getDate() {
